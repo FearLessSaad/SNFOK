@@ -45,4 +45,4 @@ This project is licensed under the HashX Pvt Ltd Proprietary License.
 
 ## Contact
 
-For queries or support, please reach out to [info@hashx.com](mailto:info@hashx.tech).
+For queries or support, please reach out to [info@hashx.tech](mailto:info@hashx.tech).
