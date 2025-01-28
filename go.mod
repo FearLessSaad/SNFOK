@@ -1,3 +1,5 @@
-module github.com/FearLessSaad/Security-And-Forensics-Of-Kubernetes
+module SNFOK
 
 go 1.22.2
+
+require github.com/gorilla/mux v1.8.1
