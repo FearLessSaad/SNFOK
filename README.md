@@ -30,39 +30,6 @@ The system consists of
 - **Databases**: Elasticsearch, PostgreSQL
 - **Visualization**: Grafana, Kibana
 
-## Installation
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/yourusername/security-forensic-kubernetes.git
-cd security-forensic-kubernetes
-```
-
-### 2. Deploy to Kubernetes
-
-#### Using Helm
-
-```bash
-helm install sec-forensic ./helm-chart
-```
-
-### 3. Configure the Environment
-
-Edit the `config.yaml` file to set up your environment variables and preferences.
-
-### 4. Start the Services
-
-```bash
-kubectl apply -f manifests/
-```
-
-## Usage
-
-1. Access the dashboard at `http://<your-cluster-ip>:<dashboard-port>`.
-2. View live threat detection and historical forensic data.
-3. Configure alerts and automated response policies via the dashboard.
-
 ## Contributing
 
 We welcome contributions to improve the project. Please follow these steps:
@@ -74,8 +41,8 @@ We welcome contributions to improve the project. Please follow these steps:
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the HashX Pvt Ltd Proprietary License.
 
 ## Contact
 
-For queries or support, please reach out to [info@hashx.com](mailto:info@hashx.com).
+For queries or support, please reach out to [info@hashx.com](mailto:info@hashx.tech).
