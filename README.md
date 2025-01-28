@@ -24,11 +24,12 @@ The system consists of
 
 ## Technologies Used
 
-- **Programming Language**: Python, GoLang, TypeScript
-- **Deep Learning Framework**: PyTorch
-- **Kubernetes Tools**: kube-state-metrics, Celium, Kubernetes API, eBPF
-- **Databases**: Elasticsearch, PostgreSQL
-- **Visualization**: Grafana, Kibana
+- **Programming Language**: ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white), ![GoLang](https://img.shields.io/badge/GoLang-00ADD8?style=for-the-badge&logo=go&logoColor=white), ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+- **Deep Learning Framework**: ![Tensorflow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
+- **Kubernetes Tools**: ![kube-state-metrics](https://img.shields.io/badge/kube--state--metrics-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white), ![Cilium](https://img.shields.io/badge/Cilium-ED8921?style=for-the-badge&logo=cilium&logoColor=white), ![Kubernetes API](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white), ![eBPF](https://img.shields.io/badge/eBPF-005571?style=for-the-badge&logo=linux&logoColor=white)
+- **Queue**: ![Apache Kafka](https://img.shields.io/badge/Apache%20Kafka-231F20?style=for-the-badge&logo=apache-kafka&logoColor=white)
+- **Databases**: ![Elasticsearch](https://img.shields.io/badge/Elasticsearch-005571?style=for-the-badge&logo=elasticsearch&logoColor=white), ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
+- **Visualization**: ![Grafana](https://img.shields.io/badge/Grafana-F46800?style=for-the-badge&logo=grafana&logoColor=white), ![Kibana](https://img.shields.io/badge/Kibana-005571?style=for-the-badge&logo=kibana&logoColor=white)
 
 ## Contributing
 
