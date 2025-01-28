@@ -1,6 +1,7 @@
 package main
 
 import (
+	"SNFOK/api/database"
 	"SNFOK/api/routes"
 	"net/http"
 
@@ -9,6 +10,10 @@ import (
 
 func main() {
 	router := mux.NewRouter()
+
+	database.InitDB()
+	defer database.DB.Close()
+
 	routes.AuditCheckRoutes(router)
 
 	http.ListenAndServe(":6444", router)
