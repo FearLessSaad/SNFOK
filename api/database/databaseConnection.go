@@ -24,10 +24,7 @@ var tables = map[string]string{
 		audit_id varchar(36) NOT NULL,
 		audit_name varchar(120),
 		audit_description text COLLATE pg_catalog."default",
-		machine_ip_address varchar(40),
-		operating_system varchar(120),
-		os_version varchar(40),
-		kubernetes_version varchar(40),
+		m_node_id varchar(36) NOT NULL,
 		audit_started_at timestamp without time zone DEFAULT now(),
 		audit_ended_at timestamp without time zone,
 		audit_created_by varchar(26),
@@ -59,7 +56,23 @@ var tables = map[string]string{
 		results text COLLATE pg_catalog."default",
 		created_at timestamp without time zone DEFAULT now(),
 		CONSTRAINT audit_checklist_report_pkey PRIMARY KEY (acr_id)
-	)`,
+	);`,
+	"master_nodes": `
+	CREATE TABLE IF NOT EXISTS inventory.master_nodes
+	(
+		m_node_id varchar(36) NOT NULL,
+		ip_address varchar(40),
+		operating_system varchar(120),
+		os_version varchar(40),
+		kubernetes_client_version varchar(40),
+		kubernetes_server_version varchar(40),
+		cpu varchar(255),
+		ram varchar(255),
+		hostname varchar(255),
+		created_at timestamp without time zone DEFAULT now(),
+		updated_at timestamp without time zone,
+		CONSTRAINT master_nodes_pkey PRIMARY KEY (m_node_id)
+	);`,
 }
 
 func InitDB() {
@@ -84,8 +97,8 @@ func InitDB() {
 
 func preFlightChecks() {
 	// Table Names
-	table_names := []string{"audit_checklist_report", "cluster_audits", "audit_checklist"}
-	schema_names := []string{"autdit"}
+	table_names := []string{"audit_checklist_report", "cluster_audits", "audit_checklist", "master_nodes"}
+	schema_names := []string{"autdit", "inventory"}
 
 	//check schemas
 	for i := 0; i < len(schema_names); i++ {

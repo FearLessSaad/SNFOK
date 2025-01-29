@@ -1,6 +1,8 @@
 package main
 
 import (
+	"SNFOK/client/routes"
+	"SNFOK/client/tooling"
 	"net/http"
 
 	"github.com/gorilla/mux"
@@ -9,5 +11,8 @@ import (
 func main() {
 	router := mux.NewRouter()
 
-	http.ListenAndServe(":45678", router)
+	tooling.SendInitialBeatWithInfo()
+
+	routes.HealthCheckRoutes(router)
+	http.ListenAndServe(":45667", router)
 }

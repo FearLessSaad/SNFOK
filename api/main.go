@@ -15,6 +15,8 @@ func main() {
 	defer database.DB.Close()
 
 	routes.AuditCheckRoutes(router)
+	routes.ClientBeatRoutes(router)
+	routes.InventoryRoutes(router)
 
 	http.ListenAndServe(":6444", router)
 }
