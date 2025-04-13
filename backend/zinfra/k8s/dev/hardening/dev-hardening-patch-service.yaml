@@ -1,0 +1,16 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: hardening-api
+  namespace: SNFOK
+spec:
+  selector:
+    app: hardening
+  type: ClusterIP
+  ports:
+    - name: hardening-api
+      port: 3000
+      targetPort: hardening-api
+    - name: hardening-api-debug
+      port: 4000
+      targetPort: hardening-api-debug
