@@ -17,7 +17,7 @@ function layout({children}: {children: React.ReactNode}) {
             </header>
             <Separator />
             <div className='overflow-auto'>
-                <div className='flex-1 px-8 container py-4 text-accent-foreground'>
+                <div className='flex-1 px-8 container w-full py-4 text-accent-foreground'>
                     {children}
                 </div>
             </div>

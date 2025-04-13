@@ -3,7 +3,6 @@ import {
   LayoutDashboard,
   Bell,
   ShieldAlert,
-  ChartNoAxesColumn,
   Code,
   HeartHandshake,
   Cog,
@@ -26,37 +25,32 @@ const routes = [
   },
   {
     label: "Threats",
-    href: "workflows",
+    href: "/threats",
     icon: ShieldAlert,
   },
   {
     label: "Alerts",
-    href: "credentials",
+    href: "/alerts",
     icon: Bell,
   },
   {
-    label: "Telemetry",
-    href: "billing",
-    icon: ChartNoAxesColumn,
-  },
-  {
     label: "Ploicies",
-    href: "billing",
+    href: "/policies",
     icon: Code,
   },
   {
     label: "Kubernetes",
-    href: "billing",
+    href: "/kubernetes",
     icon: BiLogoKubernetes,
   },
   {
     label: "Hardening",
-    href: "billing",
+    href: "/hardening",
     icon: HeartHandshake,
   },
   {
     label: "Settings",
-    href: "billing",
+    href: "/settings",
     icon: Cog,
   },
 ];

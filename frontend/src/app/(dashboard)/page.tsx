@@ -1,103 +1,216 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import React from 'react';
+import { useRouter } from 'next/navigation';
+import {
+  Card, CardContent, CardHeader,
+} from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import {
+  AlertCircle, CheckCircle, Info, ShieldAlert
+} from 'lucide-react';
+import { cn } from '@/lib/utils';
+
+// Mock data (same as your original)
+const mockDashboardData = {
+  clusterSummary: {
+    totalNodes: 5,
+    totalPods: 42,
+    totalContainers: 78,
+    activeAlerts: 3,
+    criticalAlerts: 1,
+    highAlerts: 1,
+    mediumAlerts: 1,
+    lowAlerts: 0,
+    systemHealthy: true,
+    collectorStatus: "running",
+    detectionEngineStatus: "running",
+    modelAccuracy: 0.92,
+    falsePositiveRate: 0.08
+  },
+  threatSummary: {
+    totalThreats: 12,
+    byType: [
+      { type: "privilege_escalation", count: 3 },
+      { type: "suspicious_network", count: 5 },
+      { type: "suspicious_process", count: 2 },
+      { type: "data_exfiltration", count: 1 },
+      { type: "crypto_mining", count: 1 }
+    ],
+    byNamespace: [
+      { namespace: "default", count: 5 },
+      { namespace: "kube-system", count: 3 },
+      { namespace: "monitoring", count: 2 },
+      { namespace: "app", count: 2 }
+    ]
+  },
+  recentActivity: [
+    {
+      id: "act-1",
+      timestamp: "2025-04-05T13:45:12Z",
+      type: "alert",
+      severity: "critical",
+      title: "Privilege Escalation Attempt",
+      description: "Detected attempt to escalate privileges in pod nginx-pod-1"
+    },
+    {
+      id: "act-2",
+      timestamp: "2025-04-05T13:30:45Z",
+      type: "detection",
+      severity: "high",
+      title: "Suspicious Network Activity",
+      description: "Unusual outbound connection from pod redis-pod-2"
+    },
+    {
+      id: "act-3",
+      timestamp: "2025-04-05T13:15:22Z",
+      type: "system",
+      severity: "info",
+      title: "Model Update",
+      description: "AI detection model updated successfully"
+    }
+  ]
+};
+
+const getSeverityStyle = (severity: string) => {
+  switch (severity) {
+    case 'critical': return 'bg-red-600 text-white';
+    case 'high': return 'bg-orange-600 text-white';
+    case 'medium': return 'bg-yellow-400 text-black';
+    case 'low': return 'bg-blue-400 text-white';
+    case 'info': return 'bg-gray-200 text-black';
+    default: return '';
+  }
+};
+
+const getSeverityIcon = (severity: string) => {
+  switch (severity) {
+    case 'critical': return <AlertCircle className="text-red-600 w-5 h-5" />;
+    case 'high':
+    case 'medium': return <ShieldAlert className="text-orange-500 w-5 h-5" />;
+    case 'low':
+    case 'info':
+    default: return <Info className="text-blue-500 w-5 h-5" />;
+  }
+};
+
+const Dashboard = () => {
+  const router = useRouter();
+  const { clusterSummary, threatSummary, recentActivity } = mockDashboardData;
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="p-6 space-y-6">
+      <h1 className="text-3xl font-semibold">Security Dashboard</h1>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      {/* Cluster Overview */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <Card className={cn("text-white", clusterSummary.systemHealthy ? "bg-green-600" : "bg-red-600")}>
+          <CardHeader>
+            <h2 className="text-lg font-medium">System Status</h2>
+          </CardHeader>
+          <CardContent className="flex flex-col items-center gap-2">
+            {clusterSummary.systemHealthy
+              ? <CheckCircle className="w-12 h-12" />
+              : <AlertCircle className="w-12 h-12" />
+            }
+            <p>{clusterSummary.systemHealthy ? 'Healthy' : 'Issues Detected'}</p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <h2 className="text-lg font-medium">Cluster Resources</h2>
+          </CardHeader>
+          <CardContent>
+            <div>Nodes: <strong>{clusterSummary.totalNodes}</strong></div>
+            <div>Pods: <strong>{clusterSummary.totalPods}</strong></div>
+            <div>Containers: <strong>{clusterSummary.totalContainers}</strong></div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <h2 className="text-lg font-medium">Active Alerts</h2>
+          </CardHeader>
+          <CardContent className="space-y-1">
+            <div className="text-red-600">Critical: <strong>{clusterSummary.criticalAlerts}</strong></div>
+            <div className="text-orange-500">High: <strong>{clusterSummary.highAlerts}</strong></div>
+            <div className="text-yellow-600">Medium: <strong>{clusterSummary.mediumAlerts}</strong></div>
+            <div className="text-blue-500">Low: <strong>{clusterSummary.lowAlerts}</strong></div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <h2 className="text-lg font-medium">AI Model</h2>
+          </CardHeader>
+          <CardContent className="space-y-1">
+            <div>Accuracy: <strong>{(clusterSummary.modelAccuracy * 100).toFixed(1)}%</strong></div>
+            <div>False Positives: <strong>{(clusterSummary.falsePositiveRate * 100).toFixed(1)}%</strong></div>
+            <div>Status: <strong>{clusterSummary.detectionEngineStatus}</strong></div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Threat Summary */}
+      <h2 className="text-2xl font-semibold">Threat Summary</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <Card>
+          <CardHeader>
+            <h3 className="text-lg font-medium">Threats by Type</h3>
+          </CardHeader>
+          <CardContent className="space-y-2">
+            {threatSummary.byType.map((t) => (
+              <div key={t.type} className="flex justify-between items-center">
+                <span className="capitalize">{t.type.replace(/_/g, ' ')}</span>
+                <Badge variant="outline">{t.count}</Badge>
+              </div>
+            ))}
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <h3 className="text-lg font-medium">Threats by Namespace</h3>
+          </CardHeader>
+          <CardContent className="space-y-2">
+            {threatSummary.byNamespace.map((t) => (
+              <div key={t.namespace} className="flex justify-between items-center">
+                <span>{t.namespace}</span>
+                <Badge variant="outline">{t.count}</Badge>
+              </div>
+            ))}
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Recent Activity */}
+      <div className="flex justify-between items-center">
+        <h2 className="text-2xl font-semibold">Recent Activity</h2>
+        <Button variant="outline" onClick={() => router.push('/alerts')}>
+          View All Alerts
+        </Button>
+      </div>
+      <div className="space-y-4">
+        {recentActivity.map((item) => (
+          <Card key={item.id}>
+            <CardContent className="flex items-center space-x-4">
+              <div>{getSeverityIcon(item.severity)}</div>
+              <div className="flex-grow">
+                <div className="flex items-center space-x-2 mb-1">
+                  <span className="font-medium">{item.title}</span>
+                  <Badge className={getSeverityStyle(item.severity)}>{item.severity}</Badge>
+                  <span className="text-sm text-muted-foreground">{new Date(item.timestamp).toLocaleString()}</span>
+                </div>
+                <p className="text-sm">{item.description}</p>
+              </div>
+              <Button variant="link" onClick={() => router.push(`/dashboard/alerts/${item.id}`)}>Details</Button>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
     </div>
   );
-}
+};
+
+export default Dashboard;
