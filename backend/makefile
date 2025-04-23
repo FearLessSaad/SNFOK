@@ -5,8 +5,8 @@ SHELL = $(if $(wildcard $(SHELL_PATH)),/bin/ash,/bin/bash)
 # ==============================================================================
 # Static Variables
 # ==============================================================================
-
-
+REMOTE_SERVER ?= ghostx64@192.168.2.10
+PASSWORD ?= 12345
 
 # ==============================================================================
 # Go Tooling
@@ -32,11 +32,11 @@ server-run:
 # ==============================================================================
 clean-server:
 	echo "[+] Clearning the previous build"
-	sshpass -p 12345 ssh vm@192.168.2.200 "rm -rf ~/SNFOK/*"
+	sshpass -p $(PASSWORD) ssh $(REMOTE_SERVER) "rm -rf ~/SNFOK/*"
 
 copy-to-dev-server:
 	echo "[+] Copying The Files"
-	sshpass -p 12345 scp -r ./client vm@192.168.2.200:~/SNFOK/
-	sshpass -p 12345 scp -r ./vendor vm@192.168.2.200:~/SNFOK/
-	sshpass -p 12345 scp ./go.sum vm@192.168.2.200:~/SNFOK/
-	sshpass -p 12345 scp ./go.mod vm@192.168.2.200:~/SNFOK/
+	sshpass -p $(PASSWORD) scp -r ./client $(REMOTE_SERVER):~/SNFOK/
+	sshpass -p $(PASSWORD) scp -r ./vendor $(REMOTE_SERVER):~/SNFOK/
+	sshpass -p $(PASSWORD) scp ./go.sum $(REMOTE_SERVER):~/SNFOK/
+	sshpass -p $(PASSWORD) scp ./go.mod $(REMOTE_SERVER):~/SNFOK/
