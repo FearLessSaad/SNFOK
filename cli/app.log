@@ -1,10 +1,1 @@
-{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1747417856,"message":"Database connection established successfully"}
-{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1747417972,"message":"Database connection established successfully"}
-{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1747418258,"message":"Database connection established successfully"}
-{"level":"error","error":"ERROR: duplicate key value violates unique constraint \"users_email_key\" (SQLSTATE=23505)","time":1747418258,"message":"Unable To Create New User Using CLI"}
-{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1747418302,"message":"Database connection established successfully"}
-{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1747418723,"message":"Database connection established successfully"}
-{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1747418731,"message":"Database connection established successfully"}
-{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1747418741,"message":"Database connection established successfully"}
-{"level":"error","error":"sql: no rows in result set","time":1747418741,"message":"Unable To Rotate Token Of User Using CLI"}
-{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1747418776,"message":"Database connection established successfully"}
+{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1747421910,"message":"Database connection established successfully"}

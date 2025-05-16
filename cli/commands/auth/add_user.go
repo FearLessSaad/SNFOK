@@ -129,7 +129,7 @@ var RotateTokenCmd = &cobra.Command{
 		chk_user.Token = token
 
 		chk_user.AuditFields.UpdatedAt = bun.NullTime{Time: time.Now()}
-		chk_user.AuditFields.CreatedBy = auth_constants.SNFOK_CLI
+		chk_user.AuditFields.UpdatedBy = auth_constants.SNFOK_CLI
 
 		_, err = conn.NewUpdate().Model(chk_user).Where("email = ?", email).Exec(ctx)
 

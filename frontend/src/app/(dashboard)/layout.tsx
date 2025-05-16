@@ -9,7 +9,7 @@ function layout({children}: {children: React.ReactNode}) {
     <div className='flex h-screen'>
         <DesktopSideBar/>
         <div className='flex flex-col flex-1 min-h-screen'>
-            <header className='flex items-center justify-between px-6 py-4 h-[50px] container'>
+            <header className='flex items-center justify-between px-6 py-4 h-[50px]'>
                 <BreadCrumbHeader/>
                 <div className='gap-3 flex items-center'>
                     <ModeToggle/>
