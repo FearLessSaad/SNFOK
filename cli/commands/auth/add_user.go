@@ -25,7 +25,7 @@ var AddUserCmd = &cobra.Command{
 		scanner := bufio.NewScanner(os.Stdin)
 
 		// Prompt for First Name
-		fmt.Print("Enter First Name: ")
+		fmt.Print("[=] Enter First Name >> ")
 		scanner.Scan()
 		firstName := strings.TrimSpace(scanner.Text())
 		if firstName == "" {
@@ -34,7 +34,7 @@ var AddUserCmd = &cobra.Command{
 		}
 
 		// Prompt for Last Name
-		fmt.Print("Enter Last Name: ")
+		fmt.Print("[=] Enter Last Name >> ")
 		scanner.Scan()
 		lastName := strings.TrimSpace(scanner.Text())
 		if lastName == "" {
@@ -43,7 +43,7 @@ var AddUserCmd = &cobra.Command{
 		}
 
 		// Prompt for Email
-		fmt.Print("Enter Email: ")
+		fmt.Print("[=] Enter Email >> ")
 		scanner.Scan()
 		email := strings.TrimSpace(scanner.Text())
 		if !isValidEmail(email) {
@@ -52,7 +52,7 @@ var AddUserCmd = &cobra.Command{
 		}
 
 		// Prompt for Designation
-		fmt.Print("Enter Designation: ")
+		fmt.Print("[=] Enter Designation >> ")
 		scanner.Scan()
 		designation := strings.TrimSpace(scanner.Text())
 		if designation == "" {
@@ -105,7 +105,7 @@ var RotateTokenCmd = &cobra.Command{
 		scanner := bufio.NewScanner(os.Stdin)
 
 		// Prompt for Email
-		fmt.Print("[] Enter Email >> ")
+		fmt.Print("[=] Enter Email >> ")
 		scanner.Scan()
 		email := strings.TrimSpace(scanner.Text())
 		if !isValidEmail(email) {

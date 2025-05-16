@@ -33,7 +33,7 @@ The system consists of
 
 ## License
 
-This project is licensed under the HashX Pvt Ltd Proprietary License.
+This project is licensed under the GPL-3.0 License.
 
 ## Contact
 
