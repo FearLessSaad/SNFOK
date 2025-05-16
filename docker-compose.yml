@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  snfok-postgres:
+    image: postgres:latest
+    container_name: snfok-postgres
+    environment:
+      - POSTGRES_PASSWORD=snfok12345
+    volumes:
+      - snfok-postgres-volume:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+  snfok-redis:
+    image: redis:latest
+    container_name: snfok-redis
+    environment:
+      - REDIS_PASSWORD=snfok12345
+    command: redis-server --requirepass snfok12345
+    volumes:
+      - snfok-redis-volume:/data
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+
+volumes:
+  snfok-postgres-volume:
+    name: snfok-postgres-volume
+  snfok-redis-volume:
+    name: snfok-redis-volume
