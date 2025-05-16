@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/spf13/cobra"
 	"github.com/FearLessSaad/SNFOK/cli/commands/auth"
+	"github.com/spf13/cobra"
 )
 
 func main() {
@@ -26,4 +26,5 @@ var rootCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(auth.AddUserCmd)
+	rootCmd.AddCommand(auth.RotateTokenCmd)
 }
