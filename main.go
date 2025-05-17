@@ -14,6 +14,7 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/requestid"
 	"github.com/google/uuid"
 
+	"github.com/FearLessSaad/SNFOK/controllers/auth"
 	"github.com/FearLessSaad/SNFOK/db/initializer"
 	"github.com/FearLessSaad/SNFOK/middlewares"
 	"github.com/FearLessSaad/SNFOK/tooling"
@@ -25,8 +26,8 @@ func main() {
 
 	// Initialize Fiber app
 	app := fiber.New(fiber.Config{
-		AppName:      "HashX POS API",
-		ServerHeader: "HashX POS",
+		AppName:      "HashX SNFOK API",
+		ServerHeader: "HashX SNFOK",
 		JSONEncoder:  json.Marshal,
 		JSONDecoder:  json.Unmarshal,
 	})
@@ -63,8 +64,8 @@ func main() {
 	// Custom logger middleware
 	app.Use(middlewares.LoggingMiddleware)
 
-	//api := app.Group("/api/v1")
-	//auth.AuthControllers(api.Group("/auth"))
+	api := app.Group("/api/v1")
+	auth.AuthController(api.Group("/auth"))
 
 	// -----------------------------------------------
 

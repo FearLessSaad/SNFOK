@@ -1,10 +1,11 @@
 package token
 
 import (
-	"github.com/FearLessSaad/SNFOK/controllers/auth/dto"
-	"github.com/FearLessSaad/SNFOK/tooling/logger"
 	"fmt"
 	"time"
+
+	"github.com/FearLessSaad/SNFOK/controllers/auth/dto"
+	"github.com/FearLessSaad/SNFOK/tooling/logger"
 
 	"github.com/golang-jwt/jwt/v5"
 )
@@ -12,24 +13,22 @@ import (
 const (
 	accessTokenSecret  = "dlkasjdlkasdj9r2378rhdbjksasfh"
 	refreshTokenSecret = "dlkasjdlkasdj9r2378rhdbdalkj539jfh"
-	signUpTokenSecret  = "dlkasjdlkasdj98rhdbdalkj539jksasfh"
 
-	accessTokenExpiryTime  = 15 * time.Minute
+	accessTokenExpiryTime  = 2 * 60 * time.Minute
 	refreshTokenExpiryTime = 7 * 24 * time.Hour
-	signUpTokenExpiryTime  = 15 * time.Minute
 )
 
 type TokenClaims struct {
-	UserID string   `json:"user_id"`
-	Roles  []string `json:"roles,omitempty"`
+	UserID      string `json:"user_id"`
+	Designation string `json:"designation,omitempty"`
 	jwt.RegisteredClaims
 }
 
 // GenerateToken creates a JWT with the given secret and expiry time
-func GenerateToken(userID string, roles []string, secret string, expiry time.Duration) (string, error) {
+func GenerateToken(userID string, designation string, secret string, expiry time.Duration) (string, error) {
 	claims := TokenClaims{
-		UserID: userID,
-		Roles:  roles,
+		UserID:      userID,
+		Designation: designation,
 		RegisteredClaims: jwt.RegisteredClaims{
 			ExpiresAt: jwt.NewNumericDate(time.Now().Add(expiry)),
 			IssuedAt:  jwt.NewNumericDate(time.Now()),
@@ -40,25 +39,16 @@ func GenerateToken(userID string, roles []string, secret string, expiry time.Dur
 }
 
 // GenerateJWTTokens generates access and refresh token pairs
-func GenerateJWTTokens(userID string, roles []string) (dto.JWTToken, string) {
-	accessToken, err := GenerateToken(userID, roles, accessTokenSecret, accessTokenExpiryTime)
+func GenerateJWTTokens(userID string, designation string) (dto.JWTToken, string) {
+	accessToken, err := GenerateToken(userID, designation, accessTokenSecret, accessTokenExpiryTime)
 	if err != nil {
 		return dto.JWTToken{}, fmt.Sprintf("Failed to sign access token: %v", err)
 	}
-	refreshToken, err := GenerateToken(userID, nil, refreshTokenSecret, refreshTokenExpiryTime)
+	refreshToken, err := GenerateToken(userID, "", refreshTokenSecret, refreshTokenExpiryTime)
 	if err != nil {
 		return dto.JWTToken{}, fmt.Sprintf("Failed to sign refresh token: %v", err)
 	}
 	return dto.JWTToken{AccessToken: accessToken, RefreshToken: refreshToken}, ""
-}
-
-// GenerateSignUpJWTTokens generates a signup token
-func GenerateSignUpJWTTokens(userID string) (string, string) {
-	token, err := GenerateToken(userID, nil, signUpTokenSecret, signUpTokenExpiryTime)
-	if err != nil {
-		return "", fmt.Sprintf("Failed to sign signup token: %v", err)
-	}
-	return token, ""
 }
 
 // verifyToken validates a JWT and returns its claims
@@ -94,21 +84,6 @@ func VerifyRefreshTokenAndGetClaims(tokenString string) (bool, string, *TokenCla
 	isValid, msg, err := verifyToken(tokenString, refreshTokenSecret, claims)
 	if err != nil {
 		logger.Log(logger.DEBUG, fmt.Sprintf("Refresh token verification failed: %v", err))
-	}
-	return isValid, msg, claims
-}
-
-// VerifySignUpTokenAndGetClaims verifies a signup token
-func VerifySignUpTokenAndGetClaims(tokenString string) (bool, string, *TokenClaims) {
-	claims := &TokenClaims{}
-	isValid, msg, err := verifyToken(tokenString, signUpTokenSecret, claims)
-	if err != nil {
-		logger.Log(logger.DEBUG, fmt.Sprintf("Signup token verification failed: %v", err))
-	}
-	if isValid {
-		logger.Log(logger.DEBUG, "Token is valid")
-	} else {
-		logger.Log(logger.DEBUG, "Token is not valid")
 	}
 	return isValid, msg, claims
 }

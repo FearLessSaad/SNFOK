@@ -15,11 +15,18 @@ import { z } from "zod"
 import loginSchema from "../schema/login-schema"
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { useForm } from "react-hook-form"
+import { useMutation } from "@tanstack/react-query"
+import { Login_Request } from "../actions/login"
+import { toast } from "sonner"
+import { Response } from "@/types/response"
+import { useRouter } from "next/navigation"
 
 export function LoginForm({
     className,
     ...props
 }: React.ComponentPropsWithoutRef<"div">) {
+
+    const router = useRouter()
 
     const form = useForm<z.infer<typeof loginSchema>>({
         resolver: zodResolver(loginSchema),
@@ -29,7 +36,28 @@ export function LoginForm({
         },
     })
 
+    const {mutate} = useMutation({
+        mutationFn: Login_Request,
+        onSuccess: (res: {data: Response<any>}) =>{
+            toast.success("Success!", {
+              description: res.data.message,
+              duration: 5000,
+            })
+            router.replace("/")
+          },
+          mutationKey: ["login-success"],
+          onError: (error: {response: {data: Response<any>}})=> {
+            toast.error("Login Failed!", {
+              description: error.response.data.message,
+              duration:5000
+            })
+          }
+    })
 
+    const handleSubmit = (values: z.infer<typeof loginSchema>) => {
+        console.log(values)
+        mutate(values)
+    }
 
 
     return (
@@ -43,7 +71,7 @@ export function LoginForm({
                 </CardHeader>
                 <CardContent>
                     <Form {...form}>
-                        <form>
+                        <form onSubmit={form.handleSubmit(handleSubmit)}>
                             <div className="flex flex-col gap-6">
                                 <div className="grid gap-2">
                                     <FormField
@@ -53,42 +81,42 @@ export function LoginForm({
                                             <FormItem>
                                                 <FormLabel>Email</FormLabel>
                                                 <FormControl>
-                                                <Input
-                                                    placeholder="m@example.com"
-                                                    required
-                                                    {...field}
-                                                />
+                                                    <Input
+                                                        placeholder="m@example.com"
+                                                        required
+                                                        {...field}
+                                                    />
                                                 </FormControl>
                                                 <FormDescription>
                                                     Emter your registred email address.
                                                 </FormDescription>
-                                                <FormMessage/>
+                                                <FormMessage />
                                             </FormItem>
                                         )}
                                     />
 
                                 </div>
                                 <div className="grid gap-2">
-                                <FormField
+                                    <FormField
                                         control={form.control}
                                         name="token"
                                         render={({ field }) => (
                                             <FormItem>
                                                 <FormLabel>Token</FormLabel>
                                                 <FormControl>
-                                                <Input
-                                                    placeholder="Enter your token here"
-                                                    type="password"
-                                                    required
-                                                    {...field}
-                                                />
+                                                    <Input
+                                                        placeholder="Enter your token here"
+                                                        type="password"
+                                                        required
+                                                        {...field}
+                                                    />
                                                 </FormControl>
                                                 <FormDescription>
                                                     Enter your access token to login
                                                 </FormDescription>
-                                                <FormMessage/>
+                                                <FormMessage />
                                             </FormItem>
-                                        )}/>
+                                        )} />
                                 </div>
                                 <Button type="submit" className="w-full">
                                     Login
