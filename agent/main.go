@@ -23,7 +23,7 @@ func main() {
 
 	// CORS Middleware
 	app.Use(cors.New(cors.Config{
-		AllowOrigins: "http://localhost:3989",
+		AllowOrigins: "http://localhost:8989",
 		AllowMethods: "*",
 		AllowHeaders: "*",
 		MaxAge:       86400,

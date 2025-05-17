@@ -80,3 +80,33 @@ func GetClientsetWithConfig(kubeconfigPath string) (*kubernetes.Clientset, error
 	}
 	return clientsetInstance, nil
 }
+
+func GetClusterName(kubeconfigPath string) (string, error) {
+	if kubeconfigPath == "" {
+		kubeconfigPath = filepath.Join(homedir.HomeDir(), ".kube", "config")
+	}
+
+	// Load the kubeconfig file
+	config, err := clientcmd.LoadFromFile(kubeconfigPath)
+	if err != nil {
+		return "", fmt.Errorf("failed to load kubeconfig from %s: %w", kubeconfigPath, err)
+	}
+
+	// Get the current context
+	currentContext := config.CurrentContext
+	if currentContext == "" {
+		return "", fmt.Errorf("no current context found in kubeconfig")
+	}
+
+	// Find the context definition
+	ctx, exists := config.Contexts[currentContext]
+	if !exists {
+		return "", fmt.Errorf("context %s not found in kubeconfig", currentContext)
+	}
+
+	// Return the cluster name
+	if ctx.Cluster == "" {
+		return "", fmt.Errorf("no cluster specified for context %s", currentContext)
+	}
+	return ctx.Cluster, nil
+}

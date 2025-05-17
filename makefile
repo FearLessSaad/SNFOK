@@ -13,7 +13,11 @@ clean:
 copy_agent:
 	scp agent/agent ubuntu@10.251.137.249:~/
 
-build_and_copy_agent:
+bac_agent:
 	make clean
 	make build_agent
 	make copy_agent
+
+run_server:
+	make build_server
+	./server

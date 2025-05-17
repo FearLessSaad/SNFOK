@@ -6,6 +6,7 @@ import (
 	"log"
 
 	"github.com/FearLessSaad/SNFOK/agent/tooling/k8sclient"
+	"github.com/FearLessSaad/SNFOK/shared/agent_dto"
 	"github.com/gofiber/fiber/v2"
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -56,14 +57,21 @@ func HealthController(router fiber.Router) {
 			k8s_status = false
 		}
 
-		return c.JSON(fiber.Map{
-			"k8s": fiber.Map{
-				"kubernetes_status": k8s_status,
-				"healthy_nodes":     healthyNodes,
+		c_name, err := k8sclient.GetClusterName("")
+
+		if err != nil {
+			c_name = "empty"
+		}
+
+		return c.JSON(agent_dto.HealthResponse{
+			K8sInfo: agent_dto.Health_K8s{
+				ClusterName:      c_name,
+				KubernetesStatus: k8s_status,
+				HealthyNodes:     healthyNodes,
 			},
-			"system": fiber.Map{
-				"status":  true,
-				"message": "SNFOK Agent is running correctly.",
+			SystemInfo: agent_dto.Health_System{
+				Status:  true,
+				Message: "SNFOK Agent is running correctly.",
 			},
 		})
 	})

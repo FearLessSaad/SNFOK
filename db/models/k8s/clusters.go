@@ -13,8 +13,8 @@ type AuditFields struct {
 	UpdatedAt bun.NullTime `bun:",nullzero"`
 }
 
-type Users struct {
-	bun.BaseModel `bun:"table:k8s.hosts,alias:h"`
+type Clusters struct {
+	bun.BaseModel `bun:"table:k8s.clusters,alias:h"`
 
 	ID          string `bun:",pk,type:uuid,default:gen_random_uuid()"`
 	ClusterName string
@@ -25,4 +25,4 @@ type Users struct {
 	AuditFields
 }
 
-const UsersTableName = "auth.users"
+const ClustersTableName = "k8s.clusters"

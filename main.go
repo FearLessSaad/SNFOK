@@ -15,6 +15,7 @@ import (
 	"github.com/google/uuid"
 
 	"github.com/FearLessSaad/SNFOK/controllers/auth"
+	"github.com/FearLessSaad/SNFOK/controllers/clusters"
 	"github.com/FearLessSaad/SNFOK/db/initializer"
 	"github.com/FearLessSaad/SNFOK/middlewares"
 	"github.com/FearLessSaad/SNFOK/tooling"
@@ -64,9 +65,11 @@ func main() {
 	// Custom logger middleware
 	app.Use(middlewares.LoggingMiddleware)
 
-	api := app.Group("/api/v1")
-	auth.AuthController(api.Group("/auth"))
+	api := "/api/v1"
+	auth.AuthController(app.Group(api + "/auth"))
 
+	app.Use(middlewares.AuthMiddleware)
+	clusters.ClusterController(app.Group(api + "/clusters"))
 	// -----------------------------------------------
 
 	// Channel to receive OS signals
