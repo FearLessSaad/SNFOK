@@ -549,3 +549,5 @@
 {"level":"info","status":401,"method":"GET","path":"/favicon.ico","request_id":"4408ad17-ec15-4bdb-94ab-bd9695dd3d18","time":1747560296,"message":"REQUEST"}
 {"level":"info","status":401,"method":"GET","path":"/","request_id":"c0c05ef1-2cab-4881-b83e-06f1cabc97ee","time":1747560325,"message":"REQUEST"}
 {"level":"info","status":401,"method":"GET","path":"/favicon.ico","request_id":"7594c2d8-a3db-46d0-b44c-02fbdb13b55c","time":1747560326,"message":"REQUEST"}
+{"level":"info","time":1747562427,"message":"Application is shutting down gracefully: Received signal terminated"}
+{"level":"info","time":1747562427,"message":"Closing default database connection"}
