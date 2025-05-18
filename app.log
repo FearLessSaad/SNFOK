@@ -551,3 +551,369 @@
 {"level":"info","status":401,"method":"GET","path":"/favicon.ico","request_id":"7594c2d8-a3db-46d0-b44c-02fbdb13b55c","time":1747560326,"message":"REQUEST"}
 {"level":"info","time":1747562427,"message":"Application is shutting down gracefully: Received signal terminated"}
 {"level":"info","time":1747562427,"message":"Closing default database connection"}
+{"level":"info","time":1747577107,"message":"Application is starting."}
+{"level":"info","error":"pgdriver: SASL: FATAL: password authentication failed for user \"postgres\" (SQLSTATE=28P01)","time":1747577107,"message":"Failed to connect to database"}
+{"level":"info","error":"failed to ping database: pgdriver: SASL: FATAL: password authentication failed for user \"postgres\" (SQLSTATE=28P01)","time":1747577107,"message":"Failed to initialize database"}
+{"level":"info","time":1747577135,"message":"Application is starting."}
+{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1747577135,"message":"Database connection established successfully"}
+{"level":"info","time":1747577135,"message":"Initializing 'auth' schema!"}
+{"level":"info","time":1747577135,"message":"Schema 'auth' initialized"}
+{"level":"info","time":1747577135,"message":"Table 'auth.users' already exists."}
+{"level":"info","time":1747577135,"message":"The 'auth' schema initialized successfully!"}
+{"level":"info","time":1747577135,"message":"Initializing 'k8s' schema!"}
+{"level":"info","time":1747577135,"message":"Schema 'k8s' initialized"}
+{"level":"info","time":1747577135,"message":"Table 'k8s.clusters' already exists."}
+{"level":"info","time":1747577135,"message":"The 'k8s' schema initialized successfully!"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"204d1a6a-c65c-4a61-8129-dac304158127","time":1747577146,"message":"REQUEST"}
+{"level":"info","status":401,"method":"GET","path":"/api/v1/auth/validate","request_id":"e540660a-bff0-4dea-90aa-be063fae4563","time":1747577148,"message":"REQUEST"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"e074bb9e-8c34-472d-819c-207276e0b41e","time":1747577191,"message":"REQUEST"}
+{"level":"info","status":401,"method":"GET","path":"/api/v1/auth/validate","request_id":"84231454-85b1-469b-b3a3-3090812bc2d1","time":1747577193,"message":"REQUEST"}
+{"level":"info","time":1747577263,"message":"Application is shutting down gracefully: Received signal interrupt"}
+{"level":"info","time":1747577263,"message":"Closing default database connection"}
+{"level":"info","time":1747577266,"message":"Application is starting."}
+{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1747577266,"message":"Database connection established successfully"}
+{"level":"info","time":1747577266,"message":"Initializing 'auth' schema!"}
+{"level":"info","time":1747577266,"message":"Schema 'auth' initialized"}
+{"level":"info","time":1747577266,"message":"Table 'auth.users' already exists."}
+{"level":"info","time":1747577266,"message":"The 'auth' schema initialized successfully!"}
+{"level":"info","time":1747577266,"message":"Initializing 'k8s' schema!"}
+{"level":"info","time":1747577266,"message":"Schema 'k8s' initialized"}
+{"level":"info","time":1747577266,"message":"Table 'k8s.clusters' already exists."}
+{"level":"info","time":1747577266,"message":"The 'k8s' schema initialized successfully!"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"45cc27fe-e2bb-490c-aa11-27c7fe379974","time":1747577279,"message":"REQUEST"}
+{"level":"info","status":401,"method":"GET","path":"/api/v1/auth/validate","request_id":"340ca7be-9c39-464c-91ef-efc0c07d24e3","time":1747577281,"message":"REQUEST"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"148811f8-8794-49d9-b1b7-753e2ccf9c87","time":1747577299,"message":"REQUEST"}
+{"level":"info","status":401,"method":"GET","path":"/api/v1/auth/validate","request_id":"4d9faa91-c6a4-43b0-8ec6-9471e1242141","time":1747577302,"message":"REQUEST"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"39abe653-1b31-4d41-84c1-bf14c8f3a90d","time":1747577396,"message":"REQUEST"}
+{"level":"info","time":1747577410,"message":"Application is shutting down gracefully: Received signal interrupt"}
+{"level":"info","time":1747577410,"message":"Closing default database connection"}
+{"level":"info","time":1747577413,"message":"Application is starting."}
+{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1747577413,"message":"Database connection established successfully"}
+{"level":"info","time":1747577413,"message":"Initializing 'auth' schema!"}
+{"level":"info","time":1747577413,"message":"Schema 'auth' initialized"}
+{"level":"info","time":1747577413,"message":"Table 'auth.users' already exists."}
+{"level":"info","time":1747577413,"message":"The 'auth' schema initialized successfully!"}
+{"level":"info","time":1747577413,"message":"Initializing 'k8s' schema!"}
+{"level":"info","time":1747577413,"message":"Schema 'k8s' initialized"}
+{"level":"info","time":1747577413,"message":"Table 'k8s.clusters' already exists."}
+{"level":"info","time":1747577413,"message":"The 'k8s' schema initialized successfully!"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"cf0ca999-a9e8-4d33-b67c-d7682d3645d4","time":1747577432,"message":"REQUEST"}
+{"level":"info","time":1747577517,"message":"Application is shutting down gracefully: Received signal interrupt"}
+{"level":"info","time":1747577517,"message":"Closing default database connection"}
+{"level":"info","time":1747577522,"message":"Application is starting."}
+{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1747577522,"message":"Database connection established successfully"}
+{"level":"info","time":1747577522,"message":"Initializing 'auth' schema!"}
+{"level":"info","time":1747577522,"message":"Schema 'auth' initialized"}
+{"level":"info","time":1747577522,"message":"Table 'auth.users' already exists."}
+{"level":"info","time":1747577522,"message":"The 'auth' schema initialized successfully!"}
+{"level":"info","time":1747577522,"message":"Initializing 'k8s' schema!"}
+{"level":"info","time":1747577522,"message":"Schema 'k8s' initialized"}
+{"level":"info","time":1747577522,"message":"Table 'k8s.clusters' already exists."}
+{"level":"info","time":1747577522,"message":"The 'k8s' schema initialized successfully!"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"eb308501-b38a-4ac7-b0d0-137a1ec11aa2","time":1747577541,"message":"REQUEST"}
+{"level":"info","time":1747577576,"message":"Application is shutting down gracefully: Received signal interrupt"}
+{"level":"info","time":1747577576,"message":"Closing default database connection"}
+{"level":"info","time":1747577579,"message":"Application is starting."}
+{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1747577579,"message":"Database connection established successfully"}
+{"level":"info","time":1747577579,"message":"Initializing 'auth' schema!"}
+{"level":"info","time":1747577579,"message":"Schema 'auth' initialized"}
+{"level":"info","time":1747577579,"message":"Table 'auth.users' already exists."}
+{"level":"info","time":1747577579,"message":"The 'auth' schema initialized successfully!"}
+{"level":"info","time":1747577579,"message":"Initializing 'k8s' schema!"}
+{"level":"info","time":1747577579,"message":"Schema 'k8s' initialized"}
+{"level":"info","time":1747577579,"message":"Table 'k8s.clusters' already exists."}
+{"level":"info","time":1747577579,"message":"The 'k8s' schema initialized successfully!"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"d7bfc934-5a50-409a-8cc1-8b847e086741","time":1747577601,"message":"REQUEST"}
+{"level":"info","time":1747577741,"message":"Application is shutting down gracefully: Received signal interrupt"}
+{"level":"info","time":1747577741,"message":"Closing default database connection"}
+{"level":"info","time":1747577744,"message":"Application is starting."}
+{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1747577744,"message":"Database connection established successfully"}
+{"level":"info","time":1747577744,"message":"Initializing 'auth' schema!"}
+{"level":"info","time":1747577744,"message":"Schema 'auth' initialized"}
+{"level":"info","time":1747577744,"message":"Table 'auth.users' already exists."}
+{"level":"info","time":1747577744,"message":"The 'auth' schema initialized successfully!"}
+{"level":"info","time":1747577744,"message":"Initializing 'k8s' schema!"}
+{"level":"info","time":1747577744,"message":"Schema 'k8s' initialized"}
+{"level":"info","time":1747577744,"message":"Table 'k8s.clusters' already exists."}
+{"level":"info","time":1747577744,"message":"The 'k8s' schema initialized successfully!"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"dc4e206d-77b0-457c-b3eb-ade00f313cfc","time":1747577780,"message":"REQUEST"}
+{"level":"info","time":1747577808,"message":"Application is shutting down gracefully: Received signal interrupt"}
+{"level":"info","time":1747577808,"message":"Closing default database connection"}
+{"level":"info","time":1747577811,"message":"Application is starting."}
+{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1747577811,"message":"Database connection established successfully"}
+{"level":"info","time":1747577811,"message":"Initializing 'auth' schema!"}
+{"level":"info","time":1747577811,"message":"Schema 'auth' initialized"}
+{"level":"info","time":1747577811,"message":"Table 'auth.users' already exists."}
+{"level":"info","time":1747577811,"message":"The 'auth' schema initialized successfully!"}
+{"level":"info","time":1747577811,"message":"Initializing 'k8s' schema!"}
+{"level":"info","time":1747577811,"message":"Schema 'k8s' initialized"}
+{"level":"info","time":1747577811,"message":"Table 'k8s.clusters' already exists."}
+{"level":"info","time":1747577811,"message":"The 'k8s' schema initialized successfully!"}
+{"level":"info","time":1747577855,"message":"Application is starting."}
+{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1747577855,"message":"Database connection established successfully"}
+{"level":"info","time":1747577855,"message":"Initializing 'auth' schema!"}
+{"level":"info","time":1747577855,"message":"Schema 'auth' initialized"}
+{"level":"info","time":1747577855,"message":"Table 'auth.users' already exists."}
+{"level":"info","time":1747577855,"message":"The 'auth' schema initialized successfully!"}
+{"level":"info","time":1747577855,"message":"Initializing 'k8s' schema!"}
+{"level":"info","time":1747577855,"message":"Schema 'k8s' initialized"}
+{"level":"info","time":1747577855,"message":"Table 'k8s.clusters' already exists."}
+{"level":"info","time":1747577855,"message":"The 'k8s' schema initialized successfully!"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"53944a03-9f3b-4e02-85ce-af693630a2ea","time":1747577865,"message":"REQUEST"}
+{"level":"info","time":1747577901,"message":"Application is shutting down gracefully: Received signal interrupt"}
+{"level":"info","time":1747577901,"message":"Closing default database connection"}
+{"level":"info","time":1747577917,"message":"Application is starting."}
+{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1747577917,"message":"Database connection established successfully"}
+{"level":"info","time":1747577917,"message":"Initializing 'auth' schema!"}
+{"level":"info","time":1747577917,"message":"Schema 'auth' initialized"}
+{"level":"info","time":1747577917,"message":"Table 'auth.users' already exists."}
+{"level":"info","time":1747577917,"message":"The 'auth' schema initialized successfully!"}
+{"level":"info","time":1747577917,"message":"Initializing 'k8s' schema!"}
+{"level":"info","time":1747577917,"message":"Schema 'k8s' initialized"}
+{"level":"info","time":1747577917,"message":"Table 'k8s.clusters' already exists."}
+{"level":"info","time":1747577917,"message":"The 'k8s' schema initialized successfully!"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"0169060b-550c-4c1a-8330-8a9410da6bbd","time":1747577938,"message":"REQUEST"}
+{"level":"info","time":1747577992,"message":"Application is shutting down gracefully: Received signal interrupt"}
+{"level":"info","time":1747577992,"message":"Closing default database connection"}
+{"level":"info","time":1747577995,"message":"Application is starting."}
+{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1747577995,"message":"Database connection established successfully"}
+{"level":"info","time":1747577995,"message":"Initializing 'auth' schema!"}
+{"level":"info","time":1747577995,"message":"Schema 'auth' initialized"}
+{"level":"info","time":1747577995,"message":"Table 'auth.users' already exists."}
+{"level":"info","time":1747577995,"message":"The 'auth' schema initialized successfully!"}
+{"level":"info","time":1747577995,"message":"Initializing 'k8s' schema!"}
+{"level":"info","time":1747577995,"message":"Schema 'k8s' initialized"}
+{"level":"info","time":1747577995,"message":"Table 'k8s.clusters' already exists."}
+{"level":"info","time":1747577995,"message":"The 'k8s' schema initialized successfully!"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"73564176-dbee-4f4f-ba81-ab7349a1762f","time":1747578015,"message":"REQUEST"}
+{"level":"info","time":1747578032,"message":"Application is shutting down gracefully: Received signal interrupt"}
+{"level":"info","time":1747578032,"message":"Closing default database connection"}
+{"level":"info","time":1747578035,"message":"Application is starting."}
+{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1747578035,"message":"Database connection established successfully"}
+{"level":"info","time":1747578035,"message":"Initializing 'auth' schema!"}
+{"level":"info","time":1747578035,"message":"Schema 'auth' initialized"}
+{"level":"info","time":1747578035,"message":"Table 'auth.users' already exists."}
+{"level":"info","time":1747578035,"message":"The 'auth' schema initialized successfully!"}
+{"level":"info","time":1747578035,"message":"Initializing 'k8s' schema!"}
+{"level":"info","time":1747578035,"message":"Schema 'k8s' initialized"}
+{"level":"info","time":1747578035,"message":"Table 'k8s.clusters' already exists."}
+{"level":"info","time":1747578035,"message":"The 'k8s' schema initialized successfully!"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"b0d0ca8b-5d9d-465b-8cb8-e4353532a809","time":1747578043,"message":"REQUEST"}
+{"level":"info","time":1747578161,"message":"Application is shutting down gracefully: Received signal interrupt"}
+{"level":"info","time":1747578161,"message":"Closing default database connection"}
+{"level":"info","time":1747578165,"message":"Application is starting."}
+{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1747578165,"message":"Database connection established successfully"}
+{"level":"info","time":1747578165,"message":"Initializing 'auth' schema!"}
+{"level":"info","time":1747578165,"message":"Schema 'auth' initialized"}
+{"level":"info","time":1747578165,"message":"Table 'auth.users' already exists."}
+{"level":"info","time":1747578165,"message":"The 'auth' schema initialized successfully!"}
+{"level":"info","time":1747578165,"message":"Initializing 'k8s' schema!"}
+{"level":"info","time":1747578165,"message":"Schema 'k8s' initialized"}
+{"level":"info","time":1747578165,"message":"Table 'k8s.clusters' already exists."}
+{"level":"info","time":1747578165,"message":"The 'k8s' schema initialized successfully!"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"f8d921ef-bf18-4bb6-8484-432f11b917d4","time":1747578179,"message":"REQUEST"}
+{"level":"info","time":1747578372,"message":"Application is shutting down gracefully: Received signal interrupt"}
+{"level":"info","time":1747578372,"message":"Closing default database connection"}
+{"level":"info","time":1747578377,"message":"Application is starting."}
+{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1747578377,"message":"Database connection established successfully"}
+{"level":"info","time":1747578377,"message":"Initializing 'auth' schema!"}
+{"level":"info","time":1747578377,"message":"Schema 'auth' initialized"}
+{"level":"info","time":1747578377,"message":"Table 'auth.users' already exists."}
+{"level":"info","time":1747578377,"message":"The 'auth' schema initialized successfully!"}
+{"level":"info","time":1747578377,"message":"Initializing 'k8s' schema!"}
+{"level":"info","time":1747578377,"message":"Schema 'k8s' initialized"}
+{"level":"info","time":1747578377,"message":"Table 'k8s.clusters' already exists."}
+{"level":"info","time":1747578377,"message":"The 'k8s' schema initialized successfully!"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"600b904b-420c-4fc5-bd2f-6ee9ad10cd17","time":1747578397,"message":"REQUEST"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"fe2136ab-60ea-443e-80db-e5226f401bb3","time":1747578565,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"d4eabc82-e0cf-4a78-8c33-886994f52d1c","time":1747578565,"message":"REQUEST"}
+{"level":"info","time":1747578880,"message":"Application is shutting down gracefully: Received signal interrupt"}
+{"level":"info","time":1747578880,"message":"Closing default database connection"}
+{"level":"info","time":1747580988,"message":"Application is starting."}
+{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1747580988,"message":"Database connection established successfully"}
+{"level":"info","time":1747580988,"message":"Initializing 'auth' schema!"}
+{"level":"info","time":1747580988,"message":"Schema 'auth' initialized"}
+{"level":"info","time":1747580988,"message":"Table 'auth.users' already exists."}
+{"level":"info","time":1747580988,"message":"The 'auth' schema initialized successfully!"}
+{"level":"info","time":1747580988,"message":"Initializing 'k8s' schema!"}
+{"level":"info","time":1747580988,"message":"Schema 'k8s' initialized"}
+{"level":"info","time":1747580988,"message":"Table 'k8s.clusters' already exists."}
+{"level":"info","time":1747580988,"message":"The 'k8s' schema initialized successfully!"}
+{"level":"info","status":401,"method":"GET","path":"/","request_id":"138ab9b8-0bb8-45d3-9418-bccaf7c7416b","time":1747580994,"message":"REQUEST"}
+{"level":"info","status":401,"method":"GET","path":"/favicon.ico","request_id":"854aaa3a-55e1-4364-830f-cd3a8a592362","time":1747580994,"message":"REQUEST"}
+{"level":"info","status":401,"method":"GET","path":"/","request_id":"475d6b23-d447-4f7d-ba0a-60f889263b61","time":1747580999,"message":"REQUEST"}
+{"level":"info","status":401,"method":"GET","path":"/favicon.ico","request_id":"645589b3-53ed-4027-b9fe-b267469690e9","time":1747580999,"message":"REQUEST"}
+{"level":"info","status":401,"method":"GET","path":"/","request_id":"2c2fd827-8a41-4037-9b80-415048cb0f1c","time":1747581169,"message":"REQUEST"}
+{"level":"info","status":401,"method":"GET","path":"/favicon.ico","request_id":"cabdd066-e371-4601-ad38-9a3575a49f0d","time":1747581170,"message":"REQUEST"}
+{"level":"info","status":401,"method":"GET","path":"/","request_id":"cc03fd51-aeee-449d-8118-5b2f4f701a85","time":1747581851,"message":"REQUEST"}
+{"level":"info","status":401,"method":"GET","path":"/favicon.ico","request_id":"932cab4d-a605-4162-8c60-8dc222e5306e","time":1747581851,"message":"REQUEST"}
+{"level":"info","status":401,"method":"POST","path":"//api/v1/auth/login","request_id":"70a95a44-32fd-4222-b286-05379a463ddf","time":1747581987,"message":"REQUEST"}
+{"level":"info","time":1747582072,"message":"Application is shutting down gracefully: Received signal interrupt"}
+{"level":"info","time":1747582072,"message":"Closing default database connection"}
+{"level":"info","time":1747582073,"message":"Application is starting."}
+{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1747582073,"message":"Database connection established successfully"}
+{"level":"info","time":1747582073,"message":"Initializing 'auth' schema!"}
+{"level":"info","time":1747582073,"message":"Schema 'auth' initialized"}
+{"level":"info","time":1747582073,"message":"Table 'auth.users' already exists."}
+{"level":"info","time":1747582073,"message":"The 'auth' schema initialized successfully!"}
+{"level":"info","time":1747582073,"message":"Initializing 'k8s' schema!"}
+{"level":"info","time":1747582073,"message":"Schema 'k8s' initialized"}
+{"level":"info","time":1747582073,"message":"Table 'k8s.clusters' already exists."}
+{"level":"info","time":1747582073,"message":"The 'k8s' schema initialized successfully!"}
+{"level":"info","status":401,"method":"POST","path":"//api/v1/auth/login","request_id":"9d9bdebe-7af2-4cc9-82a4-58a5315bc0cc","time":1747582092,"message":"REQUEST"}
+{"level":"info","status":401,"method":"POST","path":"//api/v1/auth/login","request_id":"a81f4958-08f1-4cf7-82fd-1e8fa2909364","time":1747582124,"message":"REQUEST"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"d40f4b0f-112a-4a50-a79b-3a903b64fc58","time":1747582195,"message":"REQUEST"}
+{"level":"info","status":401,"method":"GET","path":"/api/v1/auth/validate","request_id":"cd4a6751-238c-47d3-99f0-c0a877551144","time":1747582198,"message":"REQUEST"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"02e34235-29a6-4a4d-bffb-49118568795f","time":1747582210,"message":"REQUEST"}
+{"level":"info","status":401,"method":"GET","path":"/api/v1/auth/validate","request_id":"09a837aa-33b7-4b93-af44-9fd49bc9d032","time":1747582211,"message":"REQUEST"}
+{"level":"info","time":1747582234,"message":"Application is shutting down gracefully: Received signal interrupt"}
+{"level":"info","time":1747582234,"message":"Closing default database connection"}
+{"level":"info","time":1747582237,"message":"Application is starting."}
+{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1747582237,"message":"Database connection established successfully"}
+{"level":"info","time":1747582237,"message":"Initializing 'auth' schema!"}
+{"level":"info","time":1747582237,"message":"Schema 'auth' initialized"}
+{"level":"info","time":1747582237,"message":"Table 'auth.users' already exists."}
+{"level":"info","time":1747582237,"message":"The 'auth' schema initialized successfully!"}
+{"level":"info","time":1747582237,"message":"Initializing 'k8s' schema!"}
+{"level":"info","time":1747582237,"message":"Schema 'k8s' initialized"}
+{"level":"info","time":1747582237,"message":"Table 'k8s.clusters' already exists."}
+{"level":"info","time":1747582237,"message":"The 'k8s' schema initialized successfully!"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"9e5a2d73-bcd6-4795-8135-fd0cb8fe6727","time":1747582250,"message":"REQUEST"}
+{"level":"info","status":401,"method":"GET","path":"/api/v1/auth/validate","request_id":"92a5f0de-3cc1-43a9-b76f-6dc49df6ff79","time":1747582252,"message":"REQUEST"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"94d5da37-16cb-439a-9027-1268e7305356","time":1747582326,"message":"REQUEST"}
+{"level":"info","status":401,"method":"GET","path":"/api/v1/auth/validate","request_id":"b5952e1b-e07a-436e-bc23-1568e727473f","time":1747582328,"message":"REQUEST"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"e3523a2e-87e8-49ed-9220-8b0ecceab0c7","time":1747582346,"message":"REQUEST"}
+{"level":"info","status":401,"method":"GET","path":"/api/v1/auth/validate","request_id":"a146f7b7-6ac8-4d63-bc5a-6f84fc78e064","time":1747582347,"message":"REQUEST"}
+{"level":"info","time":1747582397,"message":"Application is shutting down gracefully: Received signal interrupt"}
+{"level":"info","time":1747582397,"message":"Closing default database connection"}
+{"level":"info","time":1747582400,"message":"Application is starting."}
+{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1747582400,"message":"Database connection established successfully"}
+{"level":"info","time":1747582400,"message":"Initializing 'auth' schema!"}
+{"level":"info","time":1747582400,"message":"Schema 'auth' initialized"}
+{"level":"info","time":1747582400,"message":"Table 'auth.users' already exists."}
+{"level":"info","time":1747582400,"message":"The 'auth' schema initialized successfully!"}
+{"level":"info","time":1747582400,"message":"Initializing 'k8s' schema!"}
+{"level":"info","time":1747582400,"message":"Schema 'k8s' initialized"}
+{"level":"info","time":1747582400,"message":"Table 'k8s.clusters' already exists."}
+{"level":"info","time":1747582400,"message":"The 'k8s' schema initialized successfully!"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"f2683507-10a5-4855-a357-22a91f15bf65","time":1747582410,"message":"REQUEST"}
+{"level":"info","status":401,"method":"GET","path":"/api/v1/auth/validate","request_id":"c55cb300-974d-42dd-b5f1-a622e6397041","time":1747582412,"message":"REQUEST"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"bf052d62-2871-4a57-94be-21066f711dbd","time":1747582446,"message":"REQUEST"}
+{"level":"info","status":401,"method":"GET","path":"/api/v1/auth/validate","request_id":"6131fda4-7a35-4050-b1a5-2c642aabeddc","time":1747582449,"message":"REQUEST"}
+{"level":"info","time":1747582518,"message":"Application is shutting down gracefully: Received signal interrupt"}
+{"level":"info","time":1747582518,"message":"Closing default database connection"}
+{"level":"info","time":1747582553,"message":"Application is starting."}
+{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1747582553,"message":"Database connection established successfully"}
+{"level":"info","time":1747582553,"message":"Initializing 'auth' schema!"}
+{"level":"info","time":1747582553,"message":"Schema 'auth' initialized"}
+{"level":"info","time":1747582553,"message":"Table 'auth.users' already exists."}
+{"level":"info","time":1747582553,"message":"The 'auth' schema initialized successfully!"}
+{"level":"info","time":1747582553,"message":"Initializing 'k8s' schema!"}
+{"level":"info","time":1747582553,"message":"Schema 'k8s' initialized"}
+{"level":"info","time":1747582553,"message":"Table 'k8s.clusters' already exists."}
+{"level":"info","time":1747582553,"message":"The 'k8s' schema initialized successfully!"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"0877803c-4e58-4e8e-baff-9458803786ec","time":1747582564,"message":"REQUEST"}
+{"level":"info","status":401,"method":"GET","path":"/api/v1/auth/validate","request_id":"c567682a-5ace-44b9-9c10-2f93930887f4","time":1747582566,"message":"REQUEST"}
+{"level":"info","time":1747582584,"message":"Application is shutting down gracefully: Received signal interrupt"}
+{"level":"info","time":1747582584,"message":"Closing default database connection"}
+{"level":"info","time":1747582588,"message":"Application is starting."}
+{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1747582588,"message":"Database connection established successfully"}
+{"level":"info","time":1747582588,"message":"Initializing 'auth' schema!"}
+{"level":"info","time":1747582588,"message":"Schema 'auth' initialized"}
+{"level":"info","time":1747582588,"message":"Table 'auth.users' already exists."}
+{"level":"info","time":1747582588,"message":"The 'auth' schema initialized successfully!"}
+{"level":"info","time":1747582588,"message":"Initializing 'k8s' schema!"}
+{"level":"info","time":1747582588,"message":"Schema 'k8s' initialized"}
+{"level":"info","time":1747582588,"message":"Table 'k8s.clusters' already exists."}
+{"level":"info","time":1747582588,"message":"The 'k8s' schema initialized successfully!"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"72d131ad-7bd1-4297-ad0b-38ea0831abce","time":1747582599,"message":"REQUEST"}
+{"level":"debug","time":1747582602}
+{"level":"info","status":401,"method":"GET","path":"/api/v1/auth/validate","request_id":"723cd4ce-6c71-49b7-8f0a-499f05662829","time":1747582602,"message":"REQUEST"}
+{"level":"info","time":1747582624,"message":"Application is shutting down gracefully: Received signal interrupt"}
+{"level":"info","time":1747582624,"message":"Closing default database connection"}
+{"level":"info","time":1747582629,"message":"Application is starting."}
+{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1747582629,"message":"Database connection established successfully"}
+{"level":"info","time":1747582629,"message":"Initializing 'auth' schema!"}
+{"level":"info","time":1747582629,"message":"Schema 'auth' initialized"}
+{"level":"info","time":1747582629,"message":"Table 'auth.users' already exists."}
+{"level":"info","time":1747582629,"message":"The 'auth' schema initialized successfully!"}
+{"level":"info","time":1747582629,"message":"Initializing 'k8s' schema!"}
+{"level":"info","time":1747582629,"message":"Schema 'k8s' initialized"}
+{"level":"info","time":1747582629,"message":"Table 'k8s.clusters' already exists."}
+{"level":"info","time":1747582629,"message":"The 'k8s' schema initialized successfully!"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"49b92437-0bcb-49be-8da2-b5ce9c28207c","time":1747582640,"message":"REQUEST"}
+{"level":"debug","time":1747582646}
+{"level":"info","status":401,"method":"GET","path":"/api/v1/auth/validate","request_id":"2eff74fd-2a4b-4b11-800d-2e5416fff976","time":1747582646,"message":"REQUEST"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"640bb241-be5d-4dc8-ab97-7063b9b7a2f8","time":1747582681,"message":"REQUEST"}
+{"level":"debug","time":1747582683}
+{"level":"info","status":401,"method":"GET","path":"/api/v1/auth/validate","request_id":"8852a2ed-9f3f-421e-aaf2-558127cb4997","time":1747582683,"message":"REQUEST"}
+{"level":"info","time":1747582694,"message":"Application is shutting down gracefully: Received signal interrupt"}
+{"level":"info","time":1747582694,"message":"Closing default database connection"}
+{"level":"info","time":1747582697,"message":"Application is starting."}
+{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1747582697,"message":"Database connection established successfully"}
+{"level":"info","time":1747582697,"message":"Initializing 'auth' schema!"}
+{"level":"info","time":1747582697,"message":"Schema 'auth' initialized"}
+{"level":"info","time":1747582697,"message":"Table 'auth.users' already exists."}
+{"level":"info","time":1747582697,"message":"The 'auth' schema initialized successfully!"}
+{"level":"info","time":1747582697,"message":"Initializing 'k8s' schema!"}
+{"level":"info","time":1747582697,"message":"Schema 'k8s' initialized"}
+{"level":"info","time":1747582697,"message":"Table 'k8s.clusters' already exists."}
+{"level":"info","time":1747582697,"message":"The 'k8s' schema initialized successfully!"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"91bfe833-0f22-467c-850f-941f3b5196f0","time":1747582703,"message":"REQUEST"}
+{"level":"debug","time":1747582705}
+{"level":"info","status":401,"method":"GET","path":"/api/v1/auth/validate","request_id":"62b07f30-e845-49a4-b95a-83eb887aaf08","time":1747582705,"message":"REQUEST"}
+{"level":"info","time":1747583124,"message":"Application is shutting down gracefully: Received signal interrupt"}
+{"level":"info","time":1747583124,"message":"Closing default database connection"}
+{"level":"info","time":1747583128,"message":"Application is starting."}
+{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1747583128,"message":"Database connection established successfully"}
+{"level":"info","time":1747583128,"message":"Initializing 'auth' schema!"}
+{"level":"info","time":1747583128,"message":"Schema 'auth' initialized"}
+{"level":"info","time":1747583128,"message":"Table 'auth.users' already exists."}
+{"level":"info","time":1747583128,"message":"The 'auth' schema initialized successfully!"}
+{"level":"info","time":1747583128,"message":"Initializing 'k8s' schema!"}
+{"level":"info","time":1747583128,"message":"Schema 'k8s' initialized"}
+{"level":"info","time":1747583128,"message":"Table 'k8s.clusters' already exists."}
+{"level":"info","time":1747583128,"message":"The 'k8s' schema initialized successfully!"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"cfca0d93-3611-4d9a-b652-760a7f97d705","time":1747583145,"message":"REQUEST"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"10149ceb-b2bb-4d54-bec3-6f4377dd8f31","time":1747583165,"message":"REQUEST"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"e02d867f-aede-489a-99a8-84ffff947f17","time":1747583167,"message":"REQUEST"}
+{"level":"debug","time":1747583173,"message":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZDE5YmIwYWYtZDdkNC00YmFhLWI3NDgtZjJjZjcwNDczODIyIiwiZGVzaWduYXRpb24iOiJDSVNPLCBDSU8iLCJleHAiOjE3NDc1OTAzNjUsImlhdCI6MTc0NzU4MzE2NX0.Y8c4SV0zIvaE4cd7D0YroKzW5BJXcKIzwYqF8qRZ1BU"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"0000c533-08bd-4d55-8d62-7894305cd9c0","time":1747583173,"message":"REQUEST"}
+{"level":"info","time":1747583334,"message":"Application is shutting down gracefully: Received signal interrupt"}
+{"level":"info","time":1747583334,"message":"Closing default database connection"}
+{"level":"info","time":1747583338,"message":"Application is starting."}
+{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1747583338,"message":"Database connection established successfully"}
+{"level":"info","time":1747583338,"message":"Initializing 'auth' schema!"}
+{"level":"info","time":1747583338,"message":"Schema 'auth' initialized"}
+{"level":"info","time":1747583338,"message":"Table 'auth.users' already exists."}
+{"level":"info","time":1747583338,"message":"The 'auth' schema initialized successfully!"}
+{"level":"info","time":1747583338,"message":"Initializing 'k8s' schema!"}
+{"level":"info","time":1747583338,"message":"Schema 'k8s' initialized"}
+{"level":"info","time":1747583338,"message":"Table 'k8s.clusters' already exists."}
+{"level":"info","time":1747583338,"message":"The 'k8s' schema initialized successfully!"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"7cd63838-92f8-4503-bd49-a71984153177","time":1747584109,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"35aa26f8-3c50-4794-b047-0900ec317ee8","time":1747584146,"message":"REQUEST"}
+{"level":"info","status":401,"method":"GET","path":"/api/v1/auth/validate","request_id":"5ff931af-85d5-4af2-995d-d4cdfa802052","time":1747584173,"message":"REQUEST"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"7dd0721f-4c17-4f84-b2d3-c5cd3f01a697","time":1747584244,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"d64d1b10-c43a-4ea6-959f-e113d5c1de34","time":1747584245,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"b0479d47-5292-4b4a-bd6d-7d93b2ef344d","time":1747584713,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"d9633038-633e-409a-9378-889e812ce7e6","time":1747584775,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"9c0166b1-6648-4881-8565-a1d00986196a","time":1747584792,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"2d70b84a-07f6-4579-af7c-7f7d61ad1423","time":1747584811,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"57eb7cfb-f750-4b47-ab3a-06ae4d91e036","time":1747584823,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"b1a7a063-2fed-43a5-aa5e-6e56848ac6d7","time":1747584839,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"e516742d-2db8-4287-8a6a-d01e89e1adda","time":1747584847,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"4b99cf1c-df14-47a1-be32-4759d27b8b40","time":1747585131,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"644507ee-d65a-48e9-84e0-af19ed4fe7e9","time":1747585135,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"cb471df4-f5b0-42a2-a13e-5587911fcf97","time":1747585139,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"184401ee-fa48-402f-ae63-02e3067749bc","time":1747585144,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"25eb7465-079c-4cd4-9820-0b6dc03687ae","time":1747585206,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"bb9fa434-f67b-48d0-ad9b-a1852c60a5fe","time":1747585214,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"aece05f9-1911-49b4-8e81-cfd79c1d8afe","time":1747585260,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"db53bdd7-db61-49d9-a802-fade293415ef","time":1747585264,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"b03bf1ab-6a86-43be-b2a7-adc4efe773c9","time":1747585267,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/","request_id":"a4fa158c-0e6b-4f79-b8ff-1bcc93c0e1d9","time":1747585836,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/favicon.ico","request_id":"974aa91c-37ed-4a06-a501-51143cf6d510","time":1747585836,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"d47b4138-5f99-45e2-88fd-7eff944ee527","time":1747586877,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"a9e576c4-5984-48bd-bb75-608697cfddf1","time":1747587107,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"aa1be58d-c54c-457a-9908-f7f88db1d17f","time":1747587119,"message":"REQUEST"}

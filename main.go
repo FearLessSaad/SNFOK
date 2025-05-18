@@ -36,13 +36,13 @@ func main() {
 	// Do All Other Application Related Code Below
 	initializer.InitializeDatabase()
 
-	// Use Helmet Middleare
-	app.Use(helmet.New())
-
 	// Encrypt Cookies
 	app.Use(encryptcookie.New(encryptcookie.Config{
 		Key: "eqnVqTihpmg5ico1TCccc2JrvHyWbbpHiuVlOi/5Gp4=",
 	}))
+
+	// Use Helmet Middleare
+	app.Use(helmet.New())
 
 	// CORS Middleware
 	app.Use(cors.New(cors.Config{

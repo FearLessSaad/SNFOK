@@ -54,7 +54,7 @@ func AuthController(router fiber.Router) {
 			Value:    data.Data.AccessToken,
 			HTTPOnly: true,
 			Secure:   false,
-			SameSite: "Strict",
+			SameSite: "None",
 			Expires:  time.Now().Add(2 * 60 * time.Minute),
 		})
 
@@ -69,7 +69,6 @@ func AuthController(router fiber.Router) {
 				"error": "Unauthorized access",
 			})
 		}
-
 		valid, errMsg, _ := token.VerifyAccessTokenAndGetClaims(access_cookie)
 		if !valid {
 			return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
