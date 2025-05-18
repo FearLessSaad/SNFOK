@@ -21,6 +21,8 @@ import { toast } from "sonner"
 import { Response } from "@/types/response"
 import { useRouter } from "next/navigation"
 
+import {Loader2Icon} from "lucide-react"
+
 export function LoginForm({
     className,
     ...props
@@ -36,7 +38,7 @@ export function LoginForm({
         },
     })
 
-    const {mutate} = useMutation({
+    const {mutate,isPending} = useMutation({
         mutationFn: Login_Request,
         onSuccess: (res: {data: Response<any>}) =>{
             toast.success("Success!", {
@@ -55,10 +57,8 @@ export function LoginForm({
     })
 
     const handleSubmit = (values: z.infer<typeof loginSchema>) => {
-        console.log(values)
         mutate(values)
     }
-
 
     return (
         <div className={cn("flex flex-col gap-6", className)} {...props}>
@@ -85,6 +85,7 @@ export function LoginForm({
                                                         placeholder="m@example.com"
                                                         required
                                                         {...field}
+                                                        disabled={isPending}
                                                     />
                                                 </FormControl>
                                                 <FormDescription>
@@ -109,6 +110,7 @@ export function LoginForm({
                                                         type="password"
                                                         required
                                                         {...field}
+                                                        disabled={isPending}
                                                     />
                                                 </FormControl>
                                                 <FormDescription>
@@ -118,8 +120,8 @@ export function LoginForm({
                                             </FormItem>
                                         )} />
                                 </div>
-                                <Button type="submit" className="w-full">
-                                    Login
+                                <Button type="submit" className="w-full" disabled={isPending}>
+                                    {isPending ?<><Loader2Icon className="animate-spin"/> Please wait...</>: "Login"  }
                                 </Button>
                             </div>
                         </form>

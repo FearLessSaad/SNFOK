@@ -54,7 +54,7 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
   }
 
   // Check if the path is excluded first
-  if (isExcluded(path)) {
+  if (!excluded) {
     return <>{children}</>;
   }
 

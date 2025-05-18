@@ -1,0 +1,3 @@
+
+
+export const NO_CLUSTER_AVAILABLE = 2000;
