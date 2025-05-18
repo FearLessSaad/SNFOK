@@ -24,3 +24,10 @@ run-server:
 
 expose-server:
 	ngrok http --url=neutral-widely-fawn.ngrok-free.app 8989
+
+
+git-push:
+	make clean
+	git add -A
+	git commit -m "$(VERSION)"
+	git push
