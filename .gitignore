@@ -1,3 +1,4 @@
 ./smaple/*
 ./app.log
 ./cli/app.log
+./agent/app.log
