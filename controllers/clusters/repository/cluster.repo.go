@@ -39,7 +39,7 @@ func GetAllClusters() (global_dto.Response[[]dto.ClusterResponse], int) {
 			Meta: &global_dto.Meta{
 				Code: response.NO_CLUSTER_AVAILABLE,
 			},
-		}, fiber.StatusNoContent
+		}, fiber.StatusOK
 	}
 
 	res := []dto.ClusterResponse{}
@@ -61,7 +61,7 @@ func GetAllClusters() (global_dto.Response[[]dto.ClusterResponse], int) {
 		Meta: &global_dto.Meta{
 			Code: response.NO_CLUSTER_AVAILABLE,
 		},
-	}, fiber.StatusNoContent
+	}, fiber.StatusOK
 }
 
 func AddNewCluster(data dto.ClusterRequest, uid string) (global_dto.Response[string], int) {
