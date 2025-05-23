@@ -13,6 +13,9 @@ clean:
 copy-agent:
 	scp agent/agent ubuntu@10.251.137.249:~/
 
+copy-k8s:
+	scp k8s ubuntu@$(IP):~/
+
 bac-agent:
 	make clean
 	make build-agent
