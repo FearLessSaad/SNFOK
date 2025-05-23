@@ -36,19 +36,20 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
     },
   });
 
-  useEffect(() => {
-    if (isExcluded(path)) {
-      setExcluded(true);
-      setLoading(false);
-      dispatch(setLoadingState(false));
-    } else {
-      setExcluded(false);
-      dispatch(setLoadingState(true));
-      setLoading(true);
-      mutate();
-    }
-  }, [path, dispatch, mutate]);
+  // useEffect(() => {
+  //   if (isExcluded(path)) {
+  //     setExcluded(true);
+  //     setLoading(false);
+  //     dispatch(setLoadingState(false));
+  //   } else {
+  //     setExcluded(false);
+  //     dispatch(setLoadingState(true));
+  //     setLoading(true);
+  //     mutate();
+  //   }
+  // }, [path, dispatch, mutate]);
 
+  dispatch(setLoadingState(false));
   if ((isPending || loading) && excluded) {
     return <Loading />;
   }

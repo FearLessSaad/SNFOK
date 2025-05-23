@@ -11,6 +11,7 @@ import { Get_All_Clusters_Request } from '@/features/dashboard/actions/get-all-c
 import { Response } from '@/types/response';
 import { NO_CLUSTER_AVAILABLE } from '@/lib/response-cods';
 import NoClusterAvailable from '@/features/dashboard/components/no-cluster-available';
+import BrokenError from '@/components/broken-error';
 
 
 const Dashboard = () => {
@@ -30,20 +31,31 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-6 space-y-6 min-h-[100%]">
       <h1 className="text-3xl font-semibold">Security Dashboard</h1>
 
       {isPending && <LoadingSkeleton/>}
-      {isError && "Error"}
 
-      {isSuccess && cluster? (
-        <> <ClusterOverview/>
-        <ThreatSummary />
-        <RecentActivity router={router} /></>
-      ): <NoClusterAvailable/>}
+      <div className="flex flex-col items-center justify-center w-full min-h-[60vh]">
+        {isSuccess && cluster ? (
+          <div className="flex flex-col items-center justify-center w-full">
+            <ClusterOverview />
+            <ThreatSummary />
+            <RecentActivity router={router} />
+          </div>
+        ) : 
+          (!isPending && !isError) ? (
+            <div className="flex flex-col items-center justify-center w-full">
+              <NoClusterAvailable />
+            </div>
+          ) : isError && (
+            <div className="flex flex-col items-center justify-center w-full">
+              <BrokenError />
+            </div>
+          )
+        }
+      </div>
 
-
-      {/* */}
     </div>
   );
 };

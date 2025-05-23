@@ -227,7 +227,9 @@ export default function ThreatsPage() {
             </div>
           </div>
 
-          <Table>
+          <Card>
+            <CardContent>
+            <Table>
             <TableHeader>
               <TableRow>
                 <TableHead>Severity</TableHead>
@@ -257,7 +259,7 @@ export default function ThreatsPage() {
                   <TableCell>
                     <Button
                       size="sm"
-                      onClick={() => router.push(`/dashboard/threats/${d.id}`)}
+                      onClick={() => router.push(`/threats/${d.id}`)}
                     >
                       Details
                     </Button>
@@ -266,6 +268,8 @@ export default function ThreatsPage() {
               ))}
             </TableBody>
           </Table>
+            </CardContent>
+          </Card>
         </TabsContent>
 
         <TabsContent value="models">

@@ -6,7 +6,8 @@ import {
   Code,
   HeartHandshake,
   Cog,
-  MenuIcon
+  MenuIcon,
+  ShieldCheckIcon
 } from "lucide-react";
 import { BiLogoKubernetes } from "react-icons/bi";
 import React, { useState } from "react";
@@ -22,6 +23,11 @@ const routes = [
     label: "Dashboard",
     href: "",
     icon: LayoutDashboard,
+  },
+  {
+    label: "Security",
+    href: "/security",
+    icon: ShieldCheckIcon,
   },
   {
     label: "Threats",
@@ -42,11 +48,6 @@ const routes = [
     label: "Kubernetes",
     href: "/kubernetes",
     icon: BiLogoKubernetes,
-  },
-  {
-    label: "Hardening",
-    href: "/hardening",
-    icon: HeartHandshake,
   },
   {
     label: "Settings",

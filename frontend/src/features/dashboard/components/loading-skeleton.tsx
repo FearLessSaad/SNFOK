@@ -1,3 +1,4 @@
+import { Card } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton'
 import React from 'react'
 
@@ -14,9 +15,9 @@ function LoadingSkeleton() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-4 gap-2 w-full">
       {cards.map((_, cardIdx) => (
-        <div
+        <Card
           key={cardIdx}
-          className="bg-muted rounded-xl shadow-sm p-5 flex flex-col gap-4 min-h-[180px] border border-muted-foreground/10"
+          className=" rounded-xl shadow-sm p-5 flex flex-col gap-4 min-h-[180px] border border-muted-foreground/10"
         >
           {[...Array(4)].map((__, idx) => (
             <Skeleton
@@ -24,7 +25,7 @@ function LoadingSkeleton() {
               className={`h-7 ${getRandomWidth()} mb-2`}
             />
           ))}
-        </div>
+        </Card>
       ))}
     </div>
   );

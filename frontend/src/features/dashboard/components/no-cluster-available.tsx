@@ -39,7 +39,7 @@ function NoClusterAvailable() {
   const handleSubmit = (values: z.infer<typeof RegisterClusterSchema>) => {};
 
   return (
-    <div className="flex justify-center items-center flex-col mt-24 w-full">
+    <div className="flex justify-center items-center flex-col w-full">
       <div className="flex flex-col items-center justify-center gap-6 bg-background rounded-lg p-8 shadow-md">
         <div className="bg-muted rounded-full p-4 mb-2">
           <svg

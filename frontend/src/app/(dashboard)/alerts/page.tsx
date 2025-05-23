@@ -190,9 +190,6 @@ const AlertsPage = () => {
       </div>
 
       <Card>
-        <CardHeader>
-          <h2 className="text-xl font-medium">Alerts Table</h2>
-        </CardHeader>
         <CardContent>
           <Table>
             <TableHeader>
