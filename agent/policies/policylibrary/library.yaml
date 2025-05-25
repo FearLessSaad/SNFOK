@@ -1,8 +1,12 @@
 apiVersion: cilium.io/v1alpha1
 kind: TracingPolicy
 metadata:
-  name: "loader"
+  name: "locader-{{.PolicyID}}"
+  namespace: {{.Namespace}}
 spec:
+  podSelector:
+    matchLabels:
+      app: {{.AppLabel}}
   options:
   - name: "disable-kprobe-multi"
     value: "1"

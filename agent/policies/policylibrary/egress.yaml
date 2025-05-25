@@ -1,8 +1,12 @@
 apiVersion: cilium.io/v1alpha1
 kind: TracingPolicy
 metadata:
-  name: "monitor-network-activity-outside-cluster-cidr-range"
+  name: "monitor-network-activity-outside-cluster-cidr-range-{{.PolicyID}}"
+  namespace: {{.Namespace}}
 spec:
+  podSelector:
+    matchLabels:
+      app: {{.AppLabel}}
   kprobes:
   - call: "tcp_connect"
     syscall: false

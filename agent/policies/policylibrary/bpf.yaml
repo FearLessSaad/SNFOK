@@ -1,8 +1,12 @@
 apiVersion: cilium.io/v1alpha1
 kind: TracingPolicy
 metadata:
-  name: "bpf-library-policy"
+  name: "bpf-library-policy-{{.PolicyID}}"
+  namespace: {{.Namespace}}
 spec:
+  podSelector:
+    matchLabels:
+      app: {{.AppLabel}}
   kprobes:
   - call: "bpf_check"
     syscall: false

@@ -2,10 +2,13 @@
 apiVersion: cilium.io/v1alpha1
 kind: TracingPolicy
 metadata:
-  name: "monitor-kernel-modules"
-  annotations:
-    description: "Monitor kernel modules operations"
+  name: "monitor-kernal-modules-{{.PolicyID}}"
+  namespace: {{.Namespace}}
+  description: "Monitor Kenral Modules Operations."
 spec:
+  podSelector:
+    matchLabels:
+      app: {{.AppLabel}}
   kprobes:
   - call: "security_kernel_module_request"
     message: "Kernel module requested and is being loaded automatically"
