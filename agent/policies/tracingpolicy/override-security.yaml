@@ -1,0 +1,20 @@
+apiVersion: cilium.io/v1alpha1
+kind: TracingPolicy
+metadata:
+  name: "security-override-{{.PolicyID}}"
+  namespace: {{.Namespace}}
+spec:
+  podSelector:
+    matchLabels:
+      app: {{.AppLabel}}
+  kprobes:
+  - call: "security_inode_mkdir"
+    syscall: false
+    selectors:
+    - matchBinaries:
+      - operator: "In"
+        values:
+        - "/usr/bin/bash"
+    - matchActions:
+      - action: Override
+        argError: -1

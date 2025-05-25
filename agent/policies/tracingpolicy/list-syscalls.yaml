@@ -1,0 +1,17 @@
+apiVersion: cilium.io/v1alpha1
+kind: TracingPolicy
+metadata:
+  name: "list-syscalls-{{.PolicyID}}"
+  namespace: {{.Namespace}}
+spec:
+  podSelector:
+    matchLabels:
+      app: {{.AppLabel}}
+  lists:
+  - name: "syscalls"
+    type: "syscalls"
+    values:
+    - "sys_dup"
+    - "sys_dup2"
+  kprobes:
+  - call: "list:syscalls"

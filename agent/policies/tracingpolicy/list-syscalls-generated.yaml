@@ -1,0 +1,19 @@
+apiVersion: cilium.io/v1alpha1
+kind: TracingPolicy
+metadata:
+  name: "list-syscalls-generated -{{.PolicyID}}"
+  namespace: {{.Namespace}}
+spec:
+  podSelector:
+    matchLabels:
+      app: {{.AppLabel}}
+  lists:
+  - name: "all-syscalls"
+    type: "generated_syscalls"
+  kprobes:
+  - call: "list:all-syscalls"
+    selectors:
+    - matchBinaries:
+      - operator: "In"
+        values:
+        - "/usr/bin/kill"

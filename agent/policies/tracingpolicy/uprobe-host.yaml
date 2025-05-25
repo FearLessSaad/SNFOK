@@ -1,0 +1,13 @@
+apiVersion: cilium.io/v1alpha1
+kind: TracingPolicy
+metadata:
+  name: "uprobe-host-{{.PolicyID}}"
+  namespace: {{.Namespace}}
+spec:
+  podSelector:
+    matchLabels:
+      app: {{.AppLabel}}
+  uprobes:
+  - path: "/procRoot/1/root/usr/bin/bash"
+    symbols:
+    - "_start"

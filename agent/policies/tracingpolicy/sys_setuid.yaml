@@ -1,0 +1,16 @@
+apiVersion: cilium.io/v1alpha1
+kind: TracingPolicy
+metadata:
+  name: "syscalls-sys-setuid-{{.PolicyID}}"
+  namespace: {{.Namespace}}
+spec:
+  podSelector:
+    matchLabels:
+      app: {{.AppLabel}}
+  kprobes:
+  # int setuid(uid_t uid);
+  - call: "sys_setuid"
+    syscall: true
+    args:
+    - index: 0
+      type: "int"

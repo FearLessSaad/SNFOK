@@ -1,0 +1,18 @@
+apiVersion: cilium.io/v1alpha1
+kind: TracingPolicy
+metadata:
+  name: "tty-{{.PolicyID}}"
+  namespace: {{.Namespace}}
+spec:
+  podSelector:
+    matchLabels:
+      app: {{.AppLabel}}
+  kprobes:
+  - call: "tty_write"
+    syscall: false
+    args:
+    - index: 0
+      type: "kiocb"
+    - index: 1
+      type: "iov_iter"
+      maxData: true

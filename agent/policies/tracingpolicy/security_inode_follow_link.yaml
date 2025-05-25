@@ -1,0 +1,15 @@
+apiVersion: cilium.io/v1alpha1
+kind: TracingPolicy
+metadata:
+  name: "security-inode-follow-symlink-{{.PolicyID}}"
+  namespace: {{.Namespace}}
+spec:
+  podSelector:
+    matchLabels:
+      app: {{.AppLabel}}
+  kprobes:
+  - call: "security_inode_follow_link"
+    syscall: false
+    args:
+    - index: 0
+      type: "dentry"

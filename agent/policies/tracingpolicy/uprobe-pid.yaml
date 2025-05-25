@@ -1,0 +1,19 @@
+apiVersion: cilium.io/v1alpha1
+kind: TracingPolicy
+metadata:
+  name: "uprobe-pid-{{.PolicyID}}"
+  namespace: {{.Namespace}}
+spec:
+  podSelector:
+    matchLabels:
+      app: {{.AppLabel}}
+  uprobes:
+  - path: "/bin/bash"
+    symbols:
+    - "readline"
+    selectors:
+    - matchPIDs:
+      - operator: In
+        followForks: true
+        values:
+        - 61697

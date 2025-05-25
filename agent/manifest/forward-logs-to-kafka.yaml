@@ -1,0 +1,141 @@
+---
+# ServiceAccount for Fluent Bit
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: fluent-bit
+  namespace: fluentbit
+---
+# ClusterRole for Fluent Bit to access Kubernetes metadata
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: fluent-bit-read
+rules:
+- apiGroups: [""]
+  resources:
+  - namespaces
+  - pods
+  verbs:
+  - get
+  - list
+  - watch
+---
+# ClusterRoleBinding for Fluent Bit
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: fluent-bit-read
+subjects:
+- kind: ServiceAccount
+  name: fluent-bit
+  namespace: fluentbit
+roleRef:
+  kind: ClusterRole
+  name: fluent-bit-read
+  apiGroup: rbac.authorization.k8s.io
+---
+# ConfigMap for Fluent Bit configuration
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fluent-bit-config
+  namespace: fluentbit
+data:
+  fluent-bit.conf: |
+    [SERVICE]
+        Flush 2
+        Log_Level debug
+        Parsers_File parsers.conf
+    @INCLUDE input-tetragon.conf
+    @INCLUDE filter-kubernetes.conf
+    @INCLUDE output-kafka.conf
+  input-tetragon.conf: |
+    [INPUT]
+        Name tail
+        Tag tetragon
+        Path /var/log/containers/*tetragon*_kube-system_export-stdout*.log
+        Parser json
+        DB /var/log/flb_tetragon.db
+        Mem_Buf_Limit 5MB
+        Skip_Long_Lines On
+        Refresh_Interval 10
+  filter-kubernetes.conf: |
+    [FILTER]
+        Name kubernetes
+        Match tetragon
+        Kube_URL https://kubernetes.default.svc.cluster.local:443
+        Kube_CA_File /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+        Kube_Token_File /var/run/secrets/kubernetes.io/serviceaccount/token
+        Merge_Log On
+        K8S-Logging.Parser On
+        K8S-Logging.Exclude Off
+  output-kafka.conf: |
+    [OUTPUT]
+        Name kafka
+        Match tetragon
+        Brokers 192.168.182.2:9092
+        Topics tetragon-logs
+        Message_Key kubernetes_pod_name
+        Retry_Limit False
+        rdkafka.log.connection.close False
+        rdkafka.queue.buffering.max.messages 10000
+        rdkafka.request.required.acks 1
+        rdkafka.metadata.broker.list 192.168.182.2:9092
+        rdkafka.client.id fluent-bit
+  parsers.conf: |
+    [PARSER]
+        Name json
+        Format json
+        Time_Key time
+        Time_Format %Y-%m-%dT%H:%M:%S.%L
+        Time_Keep On
+        Decode_Field_As escaped_utf8 log do_next
+        Decode_Field_As json log
+---
+# DaemonSet for Fluent Bit
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: fluent-bit
+  namespace: fluentbit
+spec:
+  selector:
+    matchLabels:
+      app: fluent-bit
+  template:
+    metadata:
+      labels:
+        app: fluent-bit
+    spec:
+      serviceAccountName: fluent-bit
+      containers:
+      - name: fluent-bit
+        image: fluent/fluent-bit:2.2.0
+        volumeMounts:
+        - name: varlog
+          mountPath: /var/log
+        - name: tetragonlog
+          mountPath: /var/log/containers
+        - name: config
+          mountPath: /fluent-bit/etc/
+        resources:
+          limits:
+            memory: 200Mi
+          requests:
+            cpu: 100m
+            memory: 100Mi
+      volumes:
+      - name: varlog
+        hostPath:
+          path: /var/log
+      - name: tetragonlog
+        hostPath:
+          path: /var/log/containers
+      - name: config
+        configMap:
+          name: fluent-bit-config
+      tolerations:
+      - key: node-role.kubernetes.io/master
+        effect: NoSchedule
+        operator: Exists

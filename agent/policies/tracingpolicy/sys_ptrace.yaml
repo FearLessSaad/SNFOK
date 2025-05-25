@@ -1,0 +1,16 @@
+apiVersion: cilium.io/v1alpha1
+kind: TracingPolicy
+metadata:
+  name: "syscalls-sys-ptrace-{{.PolicyID}}"
+  namespace: {{.Namespace}}
+spec:
+  podSelector:
+    matchLabels:
+      app: {{.AppLabel}}
+  kprobes:
+  # long ptrace(enum __ptrace_request request, pid_t pid, void *addr, void *data);
+  - call: "sys_ptrace"
+    syscall: true
+    args:
+     - index: 2
+       type: "int"
