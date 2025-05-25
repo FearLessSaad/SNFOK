@@ -1071,3 +1071,29 @@
 {"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/all","request_id":"109b1ebb-01c6-473d-a028-0a0c3b80e047","time":1747597277,"message":"REQUEST"}
 {"level":"info","time":1747608046,"message":"Application is shutting down gracefully: Received signal terminated"}
 {"level":"info","time":1747608046,"message":"Closing default database connection"}
+{"level":"info","time":1748187203,"message":"Application is starting."}
+{"level":"info","error":"pgdriver: SASL: FATAL: password authentication failed for user \"postgres\" (SQLSTATE=28P01)","time":1748187203,"message":"Failed to connect to database"}
+{"level":"info","error":"failed to ping database: pgdriver: SASL: FATAL: password authentication failed for user \"postgres\" (SQLSTATE=28P01)","time":1748187203,"message":"Failed to initialize database"}
+{"level":"info","time":1748189050,"message":"Application is starting."}
+{"level":"info","error":"pgdriver: SASL: FATAL: password authentication failed for user \"postgres\" (SQLSTATE=28P01)","time":1748189050,"message":"Failed to connect to database"}
+{"level":"info","error":"failed to ping database: pgdriver: SASL: FATAL: password authentication failed for user \"postgres\" (SQLSTATE=28P01)","time":1748189050,"message":"Failed to initialize database"}
+{"level":"info","time":1748189071,"message":"Application is starting."}
+{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1748189071,"message":"Database connection established successfully"}
+{"level":"info","time":1748189071,"message":"Initializing 'auth' schema!"}
+{"level":"info","time":1748189071,"message":"Schema 'auth' initialized"}
+{"level":"info","time":1748189071,"message":"Table 'auth.users' already exists."}
+{"level":"info","time":1748189071,"message":"The 'auth' schema initialized successfully!"}
+{"level":"info","time":1748189071,"message":"Initializing 'k8s' schema!"}
+{"level":"info","time":1748189071,"message":"Schema 'k8s' initialized"}
+{"level":"info","time":1748189071,"message":"Table 'k8s.clusters' already exists."}
+{"level":"info","time":1748189071,"message":"The 'k8s' schema initialized successfully!"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"d4789c11-6ae5-48b4-9fb4-085efbd96401","time":1748189248,"message":"REQUEST"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"42450461-4cd3-45fe-8b38-d46b28b8e89c","time":1748189261,"message":"REQUEST"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"2f7e1bd5-15f1-4015-a6a5-aaa8f9dfa295","time":1748189501,"message":"REQUEST"}
+{"level":"info","status":401,"method":"GET","path":"/api/v1/auth/validate","request_id":"6bcba78c-470a-4274-92fb-aa9bb282ee82","time":1748189502,"message":"REQUEST"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"a34abab4-b9fc-4a48-b121-70dd437b66b7","time":1748189546,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/all","request_id":"5f4776bb-c51f-4be5-a3f2-a110969796f0","time":1748189551,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"a9c8992c-19c6-4dee-a126-03b48088ca61","time":1748189554,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/all","request_id":"902f400f-5510-4cf2-9dc7-366e1ebca063","time":1748189918,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/all","request_id":"8b293f90-df9a-470b-bf7d-bd603e7726a7","time":1748189936,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/all","request_id":"8365fef8-fa64-4d9e-985e-660a51f752e3","time":1748190136,"message":"REQUEST"}

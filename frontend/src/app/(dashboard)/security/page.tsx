@@ -23,6 +23,7 @@ import { Button } from "@/components/ui/button";
 import { randomUUID } from "crypto";
 import { PlusCircleIcon, SearchCheckIcon, SearchSlashIcon } from "lucide-react";
 import NewMonitor from "./_components/new-monitor";
+import { Badge } from "@/components/ui/badge";
 
 const page = () => {
   const [namespaceFilter, setNamespaceFilter] = useState("all");
@@ -83,6 +84,7 @@ const page = () => {
                 <TableHead>Ip Address</TableHead>
                 <TableHead>Image</TableHead>
                 <TableHead>Threats</TableHead>
+                <TableHead>Rules</TableHead>
                 <TableHead>Actions</TableHead>
               </TableRow>
             </TableHeader>
@@ -93,7 +95,8 @@ const page = () => {
                 <TableCell>frontend-1</TableCell>
                 <TableCell>10.12.13.60</TableCell>
                 <TableCell>nignx:latest</TableCell>
-                <TableCell>50</TableCell>
+                <TableCell><Badge variant={"destructive"}>50</Badge></TableCell>
+                <TableCell><Badge variant={"outline"}>50</Badge></TableCell>
                 <TableCell>
                   <Button
                     size="sm"

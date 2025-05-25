@@ -9,6 +9,8 @@ mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
+kubectl taint nodes --all node-role.kubernetes.io/control-plane:NoSchedule-
+
 
 echo "[TASK 3] Install HELM"
 curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null

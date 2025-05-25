@@ -21,3 +21,19 @@ sudo tar xzvfC hubble-linux-${HUBBLE_ARCH}.tar.gz /usr/local/bin
 rm hubble-linux-${HUBBLE_ARCH}.tar.gz{,.sha256sum}
 
 cilium hubble enable
+
+
+echo "[TASK 3] Install Tetragon"
+helm repo add cilium https://helm.cilium.io
+helm repo update
+helm install tetragon cilium/tetragon -n kube-system
+kubectl rollout status -n kube-system ds/tetragon -w
+helm upgrade tetragon cilium/tetragon -n kube-system --set tetragon.grpc.address=localhost:1337
+
+echo "[TASK 4] Install Cilium Tetragon CLI"
+GOOS=$(go env GOOS)
+GOARCH=$(go env GOARCH)
+curl -L --remote-name-all https://github.com/cilium/tetragon/releases/latest/download/tetra-${GOOS}-${GOARCH}.tar.gz{,.sha256sum}
+sha256sum --check tetra-${GOOS}-${GOARCH}.tar.gz.sha256sum
+sudo tar -C /usr/local/bin -xzvf tetra-${GOOS}-${GOARCH}.tar.gz
+rm tetra-${GOOS}-${GOARCH}.tar.gz{,.sha256sum}
