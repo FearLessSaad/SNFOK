@@ -12,4 +12,9 @@ func KubernetesInfo(router fiber.Router) {
 		return c.Status(response).JSON(namespaces)
 	})
 
+	router.Get("/resources/all", func(c *fiber.Ctx) error {
+		response, status := repository.GetAllResources()
+		return c.Status(status).JSON(response)
+	})
+
 }
