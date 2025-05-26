@@ -3,6 +3,7 @@ package features
 import (
 	"context"
 	"fmt"
+	"time"
 
 	"github.com/FearLessSaad/SNFOK/shared/agent_dto"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -204,4 +205,111 @@ func CountAllRunningPods(clientset *kubernetes.Clientset) (int, error) {
 	}
 
 	return totalRunningPods, nil
+}
+
+// DescribePod retrieves detailed information about a specific pod in a namespace
+func DescribePod(clientset *kubernetes.Clientset, namespace, podName string) (*agent_dto.PodDescription, error) {
+	// Get the pod
+	pod, err := clientset.CoreV1().Pods(namespace).Get(context.TODO(), podName, metav1.GetOptions{})
+	if err != nil {
+		return nil, fmt.Errorf("failed to get pod %s in namespace %s: %v", podName, namespace, err)
+	}
+
+	// Build pod description
+	description := &agent_dto.PodDescription{
+		Name:        pod.Name,
+		Namespace:   pod.Namespace,
+		Labels:      pod.Labels,
+		Annotations: pod.Annotations,
+		Created:     pod.CreationTimestamp.Time,
+		Status:      string(pod.Status.Phase),
+		Reason:      pod.Status.Reason,
+		Message:     pod.Status.Message,
+		NodeName:    pod.Spec.NodeName,
+		PodIP:       pod.Status.PodIP,
+	}
+
+	if pod.Status.StartTime != nil {
+		description.StartTime = &pod.Status.StartTime.Time
+	}
+
+	// Containers
+	for i, container := range pod.Spec.Containers {
+		var state, lastState string
+		var ready bool
+		var restartCount int32
+
+		if i < len(pod.Status.ContainerStatuses) {
+			status := pod.Status.ContainerStatuses[i]
+			if status.State.Running != nil {
+				if !status.State.Running.StartedAt.IsZero() {
+					state = fmt.Sprintf("Running (Started: %s)", status.State.Running.StartedAt.Format(time.RFC3339))
+				} else {
+					state = "Running"
+				}
+			} else if status.State.Waiting != nil {
+				state = fmt.Sprintf("Waiting (%s)", status.State.Waiting.Reason)
+			} else if status.State.Terminated != nil {
+				state = fmt.Sprintf("Terminated (%s)", status.State.Terminated.Reason)
+			} else {
+				state = "Unknown"
+			}
+
+			// Handle LastState
+			if status.LastState.Running != nil && !status.LastState.Running.StartedAt.IsZero() {
+				lastState = fmt.Sprintf("Running (Started: %s)", status.LastState.Running.StartedAt.Format(time.RFC3339))
+			} else if status.LastState.Waiting != nil {
+				lastState = fmt.Sprintf("Waiting (%s)", status.LastState.Waiting.Reason)
+			} else if status.LastState.Terminated != nil {
+				lastState = fmt.Sprintf("Terminated (%s)", status.LastState.Terminated.Reason)
+			} else {
+				lastState = "None"
+			}
+
+			ready = status.Ready
+			restartCount = status.RestartCount
+		}
+
+		description.Containers = append(description.Containers, agent_dto.ContainerDescription{
+			Name:            container.Name,
+			Image:           container.Image,
+			ImagePullPolicy: string(container.ImagePullPolicy),
+			State:           state,
+			LastState:       lastState,
+			Ready:           ready,
+			RestartCount:    restartCount,
+		})
+	}
+
+	// Conditions
+	for _, condition := range pod.Status.Conditions {
+		description.Conditions = append(description.Conditions, agent_dto.PodCondition{
+			Type:               string(condition.Type),
+			Status:             string(condition.Status),
+			LastTransitionTime: condition.LastTransitionTime.Time,
+		})
+	}
+
+	// Events
+	events, err := clientset.CoreV1().Events(namespace).List(context.TODO(), metav1.ListOptions{
+		FieldSelector: fmt.Sprintf("involvedObject.name=%s,involvedObject.kind=Pod", podName),
+	})
+	if err != nil {
+		return nil, fmt.Errorf("failed to list events for pod %s in namespace %s: %v", podName, namespace, err)
+	}
+	for _, event := range events.Items {
+		age := time.Since(event.LastTimestamp.Time).Round(time.Second).String()
+		if event.LastTimestamp.IsZero() {
+			age = time.Since(event.EventTime.Time).Round(time.Second).String()
+		}
+		description.Events = append(description.Events, agent_dto.PodEvent{
+			Type:    event.Type,
+			Reason:  event.Reason,
+			Age:     age,
+			Source:  event.Source.Component,
+			Message: event.Message,
+		})
+	}
+
+	return description, nil
 }

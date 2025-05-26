@@ -1567,3 +1567,118 @@
 {"level":"info","status":200,"method":"GET","path":"/api/v1/kubernetes/namespaces/all","request_id":"2fa53f5e-4dda-43aa-98fc-981f4a67de44","time":1748274783,"message":"REQUEST"}
 {"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"08a0790f-ab9c-4d40-94fe-e5d5b9f6e63a","time":1748274783,"message":"REQUEST"}
 {"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"5ba80069-bb0b-4a9a-997e-ff4a23b8fa8e","time":1748274791,"message":"REQUEST"}
+{"level":"info","status":401,"method":"GET","path":"/api/v1/auth/validate","request_id":"d95f349e-e38f-478d-b8b0-0973685e3613","time":1748277522,"message":"REQUEST"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"dbf78998-4156-4647-9585-6c27d55a5138","time":1748277540,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/all","request_id":"262e24ee-bb94-4884-aee5-97dc0abeef3e","time":1748277543,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"3ceb1041-856f-4b9a-a982-9da85a4ab3cb","time":1748277543,"message":"REQUEST"}
+{"level":"debug","error":"failed to send GET request: Get \"http://10.251.137.206:8990/api/kubernetes/count/pods\": dial tcp 10.251.137.206:8990: connect: connection refused","time":1748277543,"message":"HTTP Request Error"}
+{"level":"info","status":400,"method":"GET","path":"/api/v1/clusters/get/all_stats","request_id":"70ab6105-0d97-40a7-9b66-0ce24dc605a7","time":1748277543,"message":"REQUEST"}
+{"level":"debug","error":"failed to send GET request: Get \"http://10.251.137.206:8990/api/kubernetes/count/pods\": dial tcp 10.251.137.206:8990: connect: connection refused","time":1748277544,"message":"HTTP Request Error"}
+{"level":"info","status":400,"method":"GET","path":"/api/v1/clusters/get/all_stats","request_id":"eaec7326-2eb2-4088-8440-ddc4355fb7b4","time":1748277544,"message":"REQUEST"}
+{"level":"debug","error":"failed to send GET request: Get \"http://10.251.137.206:8990/api/kubernetes/count/pods\": dial tcp 10.251.137.206:8990: connect: connection refused","time":1748277547,"message":"HTTP Request Error"}
+{"level":"info","status":400,"method":"GET","path":"/api/v1/clusters/get/all_stats","request_id":"2ed1a561-a67a-41c9-8a90-52abed4f4772","time":1748277547,"message":"REQUEST"}
+{"level":"debug","error":"failed to send GET request: Get \"http://10.251.137.206:8990/api/kubernetes/count/pods\": dial tcp 10.251.137.206:8990: connect: connection refused","time":1748277551,"message":"HTTP Request Error"}
+{"level":"info","status":400,"method":"GET","path":"/api/v1/clusters/get/all_stats","request_id":"d02cdbe9-2584-4567-a732-19876a820a0e","time":1748277551,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/all","request_id":"91188585-fab0-490a-8f21-668638d26a5d","time":1748277601,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"c16bdad9-0d49-4982-af15-f09f6711c3dd","time":1748277601,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/get/all_stats","request_id":"e4608ea2-c222-473b-9fad-e00ce91fec84","time":1748277602,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/all","request_id":"359d92ed-c926-46ee-889e-e54a5b6923d5","time":1748277929,"message":"REQUEST"}
+{"level":"debug","error":"failed to send GET request: Get \"http://10.251.137.206:8990/api/kubernetes/count/pods\": dial tcp 10.251.137.206:8990: connect: connection refused","time":1748277929,"message":"HTTP Request Error"}
+{"level":"info","status":400,"method":"GET","path":"/api/v1/clusters/get/all_stats","request_id":"ed50b52a-925d-4329-a5bb-d1a88bdc6339","time":1748277929,"message":"REQUEST"}
+{"level":"debug","error":"failed to send GET request: Get \"http://10.251.137.206:8990/api/kubernetes/count/pods\": dial tcp 10.251.137.206:8990: connect: connection refused","time":1748277931,"message":"HTTP Request Error"}
+{"level":"info","status":400,"method":"GET","path":"/api/v1/clusters/get/all_stats","request_id":"438ea1ae-bb06-48df-bdad-c49ed4b2a3a6","time":1748277931,"message":"REQUEST"}
+{"level":"debug","error":"failed to send GET request: Get \"http://10.251.137.206:8990/api/kubernetes/count/pods\": dial tcp 10.251.137.206:8990: connect: connection refused","time":1748277933,"message":"HTTP Request Error"}
+{"level":"info","status":400,"method":"GET","path":"/api/v1/clusters/get/all_stats","request_id":"3d6f732a-ecff-4777-b8ee-7f98de5863b5","time":1748277933,"message":"REQUEST"}
+{"level":"debug","error":"failed to send GET request: Get \"http://10.251.137.206:8990/api/kubernetes/count/pods\": dial tcp 10.251.137.206:8990: connect: connection refused","time":1748277937,"message":"HTTP Request Error"}
+{"level":"info","status":400,"method":"GET","path":"/api/v1/clusters/get/all_stats","request_id":"87dfd9ec-6c9e-4ef8-b015-e9a32fbc00a4","time":1748277937,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"0112915a-5b3b-479c-883b-0c2b8867481d","time":1748278119,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/all","request_id":"ef0e6582-1589-42e9-a139-9bd6442c750a","time":1748278119,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/get/all_stats","request_id":"0dc4f429-2ff7-4d20-8979-e3e465bdc4da","time":1748278120,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/all","request_id":"8e071252-b0fb-47c1-931f-bda5cf27d490","time":1748278125,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"fa4057dc-d290-4dd3-8408-ba3e9921e4e6","time":1748278125,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/get/all_stats","request_id":"216bd824-77a9-4be5-afd9-f908d4349c2d","time":1748278126,"message":"REQUEST"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"c0691a7c-f3c2-4e86-aa0f-e261ad3db12b","time":1748278438,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"5313445d-8a86-4bf7-8c9f-9647ca52df0b","time":1748278442,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/all","request_id":"d6b50afa-f21e-4bdc-a29a-333218432d04","time":1748278442,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/get/all_stats","request_id":"ba3151c4-60b4-49ed-af11-aad4f4c29f0e","time":1748278442,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/kubernetes/namespaces/all","request_id":"cab1873d-7e48-4ade-8672-aa3425dc4f72","time":1748278490,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"6f9f54e8-5d41-410b-a982-385cfb9ead84","time":1748278491,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/kubernetes/namespaces/all","request_id":"310424ea-0d21-4196-a5b5-1e2cb1d1aef5","time":1748278609,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"98e0d939-cd98-4b61-b67a-55bf2c563eab","time":1748278612,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/all","request_id":"bf230ea1-ee55-4442-b3a6-04ec6292795d","time":1748278626,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"24b650ad-19f5-40bb-b6b5-156567a3c72d","time":1748278626,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/get/all_stats","request_id":"279282b2-d075-4c5b-a52d-6f51e4414018","time":1748278627,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/all","request_id":"249781a3-a7b5-4fdd-a6f6-fe6d747ff6a0","time":1748279663,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"aa980670-b8af-45ea-9de8-57d9eed61a49","time":1748279663,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/get/all_stats","request_id":"2336ef71-9705-42f2-9347-7187ff68304f","time":1748279664,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"7bcf6fdd-5795-45ce-a060-2e2d7bd3c146","time":1748279694,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/all","request_id":"959b182b-a685-4e05-8b7d-44c50252687e","time":1748279695,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/get/all_stats","request_id":"b620de09-1761-4731-aca5-7722e56aed0b","time":1748279696,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/all","request_id":"43df6bb8-0926-4687-adba-b71e9b9fe75d","time":1748279722,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/get/all_stats","request_id":"056cd050-63f9-44e9-abfc-6706e0771905","time":1748279722,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"e877a847-102f-4a03-ad13-4f66d8d61898","time":1748279765,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"27449f46-8067-4e21-b4c2-022f4014567a","time":1748279765,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"c63855fc-d761-4b44-8f8a-d7daacffab5c","time":1748279969,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"143bf10d-d39c-4987-a0ac-200777b41114","time":1748279969,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"62816e55-3c22-49db-b2e5-ff527ee2990c","time":1748280235,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"d11b8444-523f-49a4-8fd8-fa2f1a77454a","time":1748280235,"message":"REQUEST"}
+{"level":"info","time":1748282258,"message":"Application is starting."}
+{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1748282258,"message":"Database connection established successfully"}
+{"level":"info","time":1748282258,"message":"Initializing 'auth' schema!"}
+{"level":"info","time":1748282258,"message":"Schema 'auth' initialized"}
+{"level":"info","time":1748282258,"message":"Table 'auth.users' already exists."}
+{"level":"info","time":1748282258,"message":"The 'auth' schema initialized successfully!"}
+{"level":"info","time":1748282258,"message":"Initializing 'k8s' schema!"}
+{"level":"info","time":1748282258,"message":"Schema 'k8s' initialized"}
+{"level":"info","time":1748282258,"message":"Table 'k8s.clusters' already exists."}
+{"level":"info","time":1748282258,"message":"Table 'k8s.alerts' already exists."}
+{"level":"info","time":1748282258,"message":"Table 'k8s.implimented_policies' already exists."}
+{"level":"info","time":1748282258,"message":"The 'k8s' schema initialized successfully!"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"7b0674bd-53d2-4039-b3de-4598d1fcdff4","time":1748282260,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"5ee64020-d4ed-47ba-9fbc-9f29654fde31","time":1748282261,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/all","request_id":"1401819e-ae8e-4578-a8bb-fbba1d306b77","time":1748282261,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/get/all_stats","request_id":"6fb90d2a-6ebd-4472-9e45-29789950d540","time":1748282262,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/all","request_id":"f6b84c04-a3e0-4e67-a70a-b84642f23d5b","time":1748282364,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/get/all_stats","request_id":"47a5456e-5a9b-4244-973f-421e4fd80358","time":1748282364,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/all","request_id":"96104cd8-5131-404c-b341-1cb99ea494f2","time":1748282378,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"c54f7a4f-d05f-4884-a71a-8ce52a9d52b6","time":1748282378,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/get/all_stats","request_id":"636edecc-baa0-4b86-8deb-72798700fe56","time":1748282379,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"0ab84db5-4faa-4a4a-abe7-d720512222bf","time":1748282381,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/all","request_id":"e7f36c2f-b052-4074-bb47-84332eaadb36","time":1748282384,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/get/all_stats","request_id":"49e4bdad-a30f-48bd-b1f7-e3d4e0f9cb8e","time":1748282385,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"4ea9b296-ba8b-46e1-ab09-433e1c625655","time":1748282385,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"b0a2ad42-0af0-4f8b-bac3-01884b22a118","time":1748282394,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"cfe740e6-3a6c-4eaf-bec1-6851a46db3e1","time":1748282394,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/all","request_id":"ca157e11-ed10-4f83-a353-c9a5d9d6ed6f","time":1748282406,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"c4f73532-78ac-4209-84a1-9d53b60216d6","time":1748282406,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/get/all_stats","request_id":"a1eac687-0034-4b74-9c7c-db519d344489","time":1748282407,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"514d1a04-a61d-40d2-a339-fd03644758ce","time":1748282419,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"e1623413-3d9e-4fca-bac6-95dd50205a7f","time":1748282420,"message":"REQUEST"}
+{"level":"info","time":1748282627,"message":"Application is shutting down gracefully: Received signal interrupt"}
+{"level":"info","time":1748282627,"message":"Closing default database connection"}
+{"level":"info","time":1748282629,"message":"Application is starting."}
+{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1748282629,"message":"Database connection established successfully"}
+{"level":"info","time":1748282629,"message":"Initializing 'auth' schema!"}
+{"level":"info","time":1748282629,"message":"Schema 'auth' initialized"}
+{"level":"info","time":1748282630,"message":"Table 'auth.users' already exists."}
+{"level":"info","time":1748282630,"message":"The 'auth' schema initialized successfully!"}
+{"level":"info","time":1748282630,"message":"Initializing 'k8s' schema!"}
+{"level":"info","time":1748282630,"message":"Schema 'k8s' initialized"}
+{"level":"info","time":1748282630,"message":"Table 'k8s.clusters' already exists."}
+{"level":"info","time":1748282630,"message":"Table 'k8s.alerts' already exists."}
+{"level":"info","time":1748282630,"message":"Table 'k8s.implimented_policies' already exists."}
+{"level":"info","time":1748282630,"message":"The 'k8s' schema initialized successfully!"}
+{"level":"info","time":1748282724,"message":"Application is shutting down gracefully: Received signal interrupt"}
+{"level":"info","time":1748282724,"message":"Closing default database connection"}
+{"level":"info","time":1748282726,"message":"Application is starting."}
+{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1748282726,"message":"Database connection established successfully"}
+{"level":"info","time":1748282726,"message":"Initializing 'auth' schema!"}
+{"level":"info","time":1748282726,"message":"Schema 'auth' initialized"}
+{"level":"info","time":1748282726,"message":"Table 'auth.users' already exists."}
+{"level":"info","time":1748282726,"message":"The 'auth' schema initialized successfully!"}
+{"level":"info","time":1748282726,"message":"Initializing 'k8s' schema!"}
+{"level":"info","time":1748282726,"message":"Schema 'k8s' initialized"}
+{"level":"info","time":1748282726,"message":"Table 'k8s.clusters' already exists."}
+{"level":"info","time":1748282726,"message":"Table 'k8s.alerts' already exists."}
+{"level":"info","time":1748282726,"message":"Table 'k8s.implimented_policies' already exists."}
+{"level":"info","time":1748282726,"message":"The 'k8s' schema initialized successfully!"}

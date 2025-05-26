@@ -44,17 +44,6 @@ func main() {
 
 	// Use Helmet Middleare
 	app.Use(helmet.New())
-
-	// CORS Middleware
-	app.Use(cors.New(cors.Config{
-		AllowOrigins:     "http://localhost:3000",
-		AllowMethods:     "GET,POST,PUT,DELETE,OPTIONS",
-		AllowHeaders:     "Content-Type, Authorization, Accept, Origin",
-		AllowCredentials: true, // Enable credentials for cookies
-		ExposeHeaders:    "Content-Type, Authorization",
-		MaxAge:           86400,
-	}))
-
 	// Add Request ID  Middleware
 	app.Use(requestid.New(requestid.Config{
 		Header: "X-Request-ID",
@@ -65,6 +54,16 @@ func main() {
 
 	// Custom logger middleware
 	app.Use(middlewares.LoggingMiddleware)
+
+	// CORS Middleware
+	app.Use(cors.New(cors.Config{
+		AllowOrigins:     "http://localhost:3000",
+		AllowMethods:     "GET,POST,PUT,DELETE,OPTIONS",
+		AllowHeaders:     "Content-Type, Authorization, Accept, Origin",
+		AllowCredentials: true, // Enable credentials for cookies
+		ExposeHeaders:    "Content-Type, Authorization",
+		MaxAge:           86400,
+	}))
 
 	api := "/api/v1"
 	auth.AuthController(app.Group(api + "/auth"))
