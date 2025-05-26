@@ -175,3 +175,33 @@ func isControlPlaneNode(labels map[string]string) bool {
 	}
 	return false
 }
+
+// CountAllRunningPods counts all pods in the "Running" phase across all namespaces
+func CountAllRunningPods(clientset *kubernetes.Clientset) (int, error) {
+	// Get all namespaces
+	namespaces, err := GetAllNamespaces(clientset)
+	if err != nil {
+		return 0, fmt.Errorf("failed to get namespaces: %v", err)
+	}
+
+	// Initialize counter
+	totalRunningPods := 0
+
+	// Iterate through each namespace
+	for _, namespace := range namespaces {
+		// List pods in the namespace
+		pods, err := clientset.CoreV1().Pods(namespace).List(context.TODO(), metav1.ListOptions{})
+		if err != nil {
+			return 0, fmt.Errorf("failed to list pods in namespace %s: %v", namespace, err)
+		}
+
+		// Count pods in "Running" phase
+		for _, pod := range pods.Items {
+			if pod.Status.Phase == "Running" {
+				totalRunningPods++
+			}
+		}
+	}
+
+	return totalRunningPods, nil
+}

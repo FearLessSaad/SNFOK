@@ -17,6 +17,11 @@ func ClusterInfo(router fiber.Router) {
 		return c.Status(status).JSON(response)
 	})
 
+	router.Get("/get/all_stats", func(c *fiber.Ctx) error {
+		response, status := repository.CountAllStats()
+		return c.Status(status).JSON(response)
+	})
+
 	router.Post("/create", func(c *fiber.Ctx) error {
 		details := new(dto.ClusterRequest)
 		if err := c.BodyParser(details); err != nil {

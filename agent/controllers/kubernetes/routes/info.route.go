@@ -47,6 +47,26 @@ func GetAllWorkerNodes(router fiber.Router) {
 		return c.Status(fiber.StatusOK).JSON(nodes)
 	})
 
+	router.Get("/count/pods", func(c *fiber.Ctx) error {
+
+		fmt.Println("Get All Running Pods")
+		// Get the singleton Kubernetes clientset
+		clientset, err := k8sclient.GetClientset()
+		if err != nil {
+			log.Fatalf("Failed to get Kubernetes clientset: %v", err)
+		}
+
+		nodes, err := features.CountAllRunningPods(clientset)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "Error getting all running pods: %v\n", err)
+			os.Exit(1)
+		}
+
+		return c.Status(fiber.StatusOK).JSON(fiber.Map{
+			"running_pods": nodes,
+		})
+	})
+
 	router.Get("/namespaces/:namespace/resources", func(c *fiber.Ctx) error {
 
 		// Get the singleton Kubernetes clientset

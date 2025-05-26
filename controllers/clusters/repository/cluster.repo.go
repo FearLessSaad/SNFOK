@@ -18,6 +18,74 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
+type runningPods struct {
+	RunningPods int `json:"running_pods"`
+}
+
+func CountAllStats() (global_dto.Response[dto.CountAllStats], int) {
+	clusters, err := persistance.GetAllClusters()
+	if err != nil {
+		return global_dto.Response[dto.CountAllStats]{
+			Status:  "error",
+			Message: message.SOMETING_WRONG,
+			Data:    nil,
+			Meta: &global_dto.Meta{
+				Code: response.EXECUTION_ERROR,
+			},
+		}, fiber.StatusInternalServerError
+	}
+
+	cluster := clusters[0]
+
+	client := httpclient.NewClient(0)
+
+	res, err := client.Get("http://"+cluster.MasterIP+":"+fmt.Sprintf("%d", cluster.AgentPort)+agent_consts.KUBERNETES_COUNT_ALL_RUNNING_PODS, map[string]string{})
+	if err != nil {
+		logger.Log(logger.DEBUG, "HTTP Request Error", logger.Field{Key: "error", Value: err.Error()})
+		return global_dto.Response[dto.CountAllStats]{
+			Status:  "error",
+			Message: message.SNFOK_AGENT_IS_NOT_ACCESSABLE,
+			Data:    nil,
+			Meta: &global_dto.Meta{
+				Code: response.SNFOK_AGENT_IS_NOT_ACCESSABLE,
+			},
+		}, fiber.StatusBadRequest
+	}
+
+	var res_data runningPods
+	if err := json.Unmarshal(res.Body, &res_data); err != nil {
+		logger.Log(logger.DEBUG, "Unmarshal Response", logger.Field{Key: "error", Value: err.Error()})
+		return global_dto.Response[dto.CountAllStats]{
+			Status:  "error",
+			Message: message.SOMETING_WRONG,
+			Data:    nil,
+			Meta: &global_dto.Meta{
+				Code: response.EXECUTION_ERROR,
+			},
+		}, fiber.StatusInternalServerError
+	}
+
+	countAlerts, err := persistance.CountAlerts()
+	countPolicies, err := persistance.CountImplimentedPolicies()
+
+	stats := new(dto.CountAllStats)
+	stats = &dto.CountAllStats{
+		RunningPods:         res_data.RunningPods,
+		ImplimentedPolicies: countPolicies,
+		Alerts:              countAlerts,
+	}
+
+	return global_dto.Response[dto.CountAllStats]{
+		Status:  "success",
+		Message: message.SOMETING_WRONG,
+		Data:    stats,
+		Meta: &global_dto.Meta{
+			Code: response.ALL_STATS,
+		},
+	}, fiber.StatusOK
+
+}
+
 func GetAllClusters() (global_dto.Response[[]dto.ClusterResponse], int) {
 	clusters, err := persistance.GetAllClusters()
 

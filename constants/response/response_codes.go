@@ -18,6 +18,7 @@ const (
 	CLUSTER_REGISTERED  = 2
 	CLUSETR_AVAILABLE   = 3
 	NAMESPACES_RESPONSE = 4
+	ALL_STATS           = 5
 )
 
 const (

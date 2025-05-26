@@ -17,6 +17,7 @@ func InitializeCluster() {
 
 	utils.SchemaInitializer(ctx, conn, "k8s")
 	utils.InitializeTable(ctx, conn, k8s.ClustersTableName, (*k8s.Clusters)(nil))
-
+	utils.InitializeTable(ctx, conn, k8s.AlertsTableName, (*k8s.Alerts)(nil))
+	utils.InitializeTable(ctx, conn, k8s.ImplimentedPoliciesTableName, (*k8s.ImplimentedPolicies)(nil))
 	logger.Log(logger.INFO, "The 'k8s' schema initialized successfully!")
 }
