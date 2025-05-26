@@ -3,6 +3,7 @@ package repository
 import (
 	"encoding/json"
 	"fmt"
+	"strconv"
 
 	"github.com/FearLessSaad/SNFOK/constants/agent_consts"
 	"github.com/FearLessSaad/SNFOK/constants/message"
@@ -59,7 +60,7 @@ func GetAllClusters() (global_dto.Response[[]dto.ClusterResponse], int) {
 		Message: message.NO_REGISTERED_CLUSTER_AVAILABLE,
 		Data:    &res,
 		Meta: &global_dto.Meta{
-			Code: response.NO_CLUSTER_AVAILABLE,
+			Code: response.CLUSETR_AVAILABLE,
 		},
 	}, fiber.StatusOK
 }
@@ -89,9 +90,22 @@ func AddNewCluster(data dto.ClusterRequest, uid string) (global_dto.Response[str
 		}, fiber.StatusOK
 	}
 
+	port, err := strconv.Atoi(data.AgentPort)
+	if err != nil {
+		logger.Log(logger.DEBUG, "Unmarshal Response", logger.Field{Key: "error", Value: err.Error()})
+		return global_dto.Response[string]{
+			Status:  "error",
+			Message: message.SOMETING_WRONG,
+			Data:    nil,
+			Meta: &global_dto.Meta{
+				Code: response.EXECUTION_ERROR,
+			},
+		}, fiber.StatusInternalServerError
+	}
+
 	client := httpclient.NewClient(0)
 
-	res, err := client.Get("http://"+data.MasterIP+":"+fmt.Sprintf("%d", data.AgentPort)+agent_consts.HEALTH_GET_INTO_PATH, map[string]string{})
+	res, err := client.Get("http://"+data.MasterIP+":"+fmt.Sprintf("%d", port)+agent_consts.HEALTH_GET_INTO_PATH, map[string]string{})
 	if err != nil {
 		logger.Log(logger.DEBUG, "HTTP Request Error", logger.Field{Key: "error", Value: err.Error()})
 		return global_dto.Response[string]{
@@ -101,7 +115,7 @@ func AddNewCluster(data dto.ClusterRequest, uid string) (global_dto.Response[str
 			Meta: &global_dto.Meta{
 				Code: response.SNFOK_AGENT_IS_NOT_ACCESSABLE,
 			},
-		}, fiber.StatusOK
+		}, fiber.StatusBadRequest
 	}
 
 	var res_data agent_dto.HealthResponse
@@ -120,7 +134,7 @@ func AddNewCluster(data dto.ClusterRequest, uid string) (global_dto.Response[str
 	cluster := k8s.Clusters{
 		ClusterName: res_data.K8sInfo.ClusterName,
 		MasterIP:    data.MasterIP,
-		AgentPort:   data.AgentPort,
+		AgentPort:   port,
 		Description: data.Description,
 	}
 	cluster.AuditFields.CreatedBy = uid

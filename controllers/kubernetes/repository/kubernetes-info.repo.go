@@ -49,11 +49,11 @@ func GetAllNamespaces() (global_dto.Response[[]string], int) {
 	}
 
 	return global_dto.Response[[]string]{
-		Status:  "error",
-		Message: message.SNFOK_AGENT_IS_NOT_ACCESSABLE,
+		Status:  "success",
+		Message: "",
 		Data:    &res_data,
 		Meta: &global_dto.Meta{
-			Code: response.SNFOK_AGENT_IS_NOT_ACCESSABLE,
+			Code: response.NAMESPACES_RESPONSE,
 		},
 	}, fiber.StatusOK
 

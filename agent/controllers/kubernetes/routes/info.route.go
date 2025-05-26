@@ -31,6 +31,7 @@ func GetAllWorkerNodes(router fiber.Router) {
 
 	router.Get("/namespaces/all", func(c *fiber.Ctx) error {
 
+		fmt.Println("Get All NameSpaces")
 		// Get the singleton Kubernetes clientset
 		clientset, err := k8sclient.GetClientset()
 		if err != nil {
