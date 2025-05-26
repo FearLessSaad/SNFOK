@@ -84,7 +84,7 @@ func GetAllWorkerNodes(router fiber.Router) {
 		return c.Status(fiber.StatusOK).JSON(nodes)
 	})
 
-	router.Get("/pod/describe/:namespace/:pd", func(c *fiber.Ctx) error {
+	router.Get("/pod/describe/:namespace/:pod", func(c *fiber.Ctx) error {
 
 		// Get the singleton Kubernetes clientset
 		clientset, err := k8sclient.GetClientset()
@@ -92,12 +92,12 @@ func GetAllWorkerNodes(router fiber.Router) {
 			log.Fatalf("Failed to get Kubernetes clientset: %v", err)
 		}
 
-		nodes, err := features.GetNamespaceResources(clientset, c.AllParams()["namespace"])
+		description, err := features.DescribePod(clientset, c.AllParams()["namespace"], c.AllParams()["pod"])
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "Error getting worker nodes: %v\n", err)
 			os.Exit(1)
 		}
 
-		return c.Status(fiber.StatusOK).JSON(nodes)
+		return c.Status(fiber.StatusOK).JSON(description)
 	})
 }

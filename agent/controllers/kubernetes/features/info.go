@@ -255,13 +255,13 @@ func DescribePod(clientset *kubernetes.Clientset, namespace, podName string) (*a
 				state = "Unknown"
 			}
 
-			// Handle LastState
-			if status.LastState.Running != nil && !status.LastState.Running.StartedAt.IsZero() {
-				lastState = fmt.Sprintf("Running (Started: %s)", status.LastState.Running.StartedAt.Format(time.RFC3339))
-			} else if status.LastState.Waiting != nil {
-				lastState = fmt.Sprintf("Waiting (%s)", status.LastState.Waiting.Reason)
-			} else if status.LastState.Terminated != nil {
-				lastState = fmt.Sprintf("Terminated (%s)", status.LastState.Terminated.Reason)
+			// Handle LastTerminationState
+			if status.LastTerminationState.Running != nil && !status.LastTerminationState.Running.StartedAt.IsZero() {
+				lastState = fmt.Sprintf("Running (Started: %s)", status.LastTerminationState.Running.StartedAt.Format(time.RFC3339))
+			} else if status.LastTerminationState.Waiting != nil {
+				lastState = fmt.Sprintf("Waiting (%s)", status.LastTerminationState.Waiting.Reason)
+			} else if status.LastTerminationState.Terminated != nil {
+				lastState = fmt.Sprintf("Terminated (%s)", status.LastTerminationState.Terminated.Reason)
 			} else {
 				lastState = "None"
 			}
