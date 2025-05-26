@@ -2,9 +2,12 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 
 	"github.com/FearLessSaad/SNFOK/agent/controllers/health"
 	"github.com/FearLessSaad/SNFOK/agent/controllers/kubernetes"
+	"github.com/FearLessSaad/SNFOK/agent/tooling/templates"
+	"github.com/FearLessSaad/SNFOK/tooling/logger"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/helmet"
@@ -18,6 +21,12 @@ func main() {
 		JSONEncoder:  json.Marshal,
 		JSONDecoder:  json.Unmarshal,
 	})
+
+	policy, err := templates.GeneratePolicy("file-monitoring.yaml", "snfok-test", "nginx-test")
+	if err != nil {
+		logger.Log(logger.ERROR, policy)
+	}
+	fmt.Println("Policy Path >> ", policy)
 
 	// Use Helmet Middleare
 	app.Use(helmet.New())

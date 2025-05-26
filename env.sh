@@ -7,3 +7,6 @@ export DB_SSL_MODE="disable"
 export SERVER_PORT="8989"
 export LOG_FILE="app.log"
 export COOKIE_DOMAIN="localhost"
+
+export POLICIES_TEMPLATES_DIR="/Users/xaadiii/Desktop/SNFOK/agent/policies"
+export APPLIED_POLICIES_DIR="/Users/xaadiii/Desktop/SNFOK/agent/tmp"

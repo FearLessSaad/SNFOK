@@ -1097,3 +1097,5 @@
 {"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/all","request_id":"902f400f-5510-4cf2-9dc7-366e1ebca063","time":1748189918,"message":"REQUEST"}
 {"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/all","request_id":"8b293f90-df9a-470b-bf7d-bd603e7726a7","time":1748189936,"message":"REQUEST"}
 {"level":"info","status":200,"method":"GET","path":"/api/v1/clusters/all","request_id":"8365fef8-fa64-4d9e-985e-660a51f752e3","time":1748190136,"message":"REQUEST"}
+{"level":"error","time":1748248530,"message":"open policies/file-monitoring.yaml: no such file or directory"}
+{"level":"error","time":1748248678,"message":"open /Users/xaadiii/Desktop/SNFOK/policies/file-monitoring.yaml: no such file or directory"}

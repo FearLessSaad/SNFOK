@@ -7,7 +7,7 @@ const (
 
 // Ploicies Template
 const (
-	NAMESPACE_TEMPLATE   = "{{.Namespace}}"
-	APP_LABEL_TEMPLATE   = "{{.AppLabel}}"
-	POLICY_NAME_TEMPLATE = "{{.PolicyName}}"
+	POLICY_NAMESPACE_TEMPLATE = "{{.Namespace}}"
+	POLICY_APP_LABEL_TEMPLATE = "{{.AppLabel}}"
+	POLICY_ID_TEMPLATE        = "{{.PolicyID}}"
 )
