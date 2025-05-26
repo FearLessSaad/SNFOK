@@ -13,6 +13,10 @@ func GET_ALL_NAMESPACE_RESOURCES(namespace string) string {
 	return fmt.Sprintf("/api/kubernetes/namespaces/%s/resources", namespace)
 }
 
+const (
+	POLICIES_DEPLOY_POLICY = "/api/policies/deplye/policy"
+)
+
 // Ploicies Template
 const (
 	POLICY_NAMESPACE_TEMPLATE = "{{.Namespace}}"

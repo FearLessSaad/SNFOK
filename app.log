@@ -1,0 +1,15 @@
+{"level":"info","time":1748286530,"message":"Application is starting."}
+{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1748286530,"message":"Database connection established successfully"}
+{"level":"info","time":1748286530,"message":"Initializing 'auth' schema!"}
+{"level":"info","time":1748286530,"message":"Schema 'auth' initialized"}
+{"level":"info","time":1748286530,"message":"Table 'auth.users' already exists."}
+{"level":"info","time":1748286530,"message":"The 'auth' schema initialized successfully!"}
+{"level":"info","time":1748286530,"message":"Initializing 'k8s' schema!"}
+{"level":"info","time":1748286530,"message":"Schema 'k8s' initialized"}
+{"level":"info","time":1748286530,"message":"Table 'k8s.clusters' already exists."}
+{"level":"info","time":1748286530,"message":"Table 'k8s.alerts' already exists."}
+{"level":"info","time":1748286530,"message":"Table 'k8s.implimented_policies' already exists."}
+{"level":"info","time":1748286530,"message":"Table 'k8s.all_policies' created successfully."}
+{"level":"info","time":1748286530,"message":"The 'k8s' schema initialized successfully!"}
+{"level":"info","time":1748292454,"message":"Application is shutting down gracefully: Received signal interrupt"}
+{"level":"info","time":1748292454,"message":"Closing default database connection"}
