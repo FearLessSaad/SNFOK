@@ -10,7 +10,7 @@
 #  shebang (!#/bin/bash) used to handle the script.
 #
 apiVersion: cilium.io/v1alpha1
-kind: TracingPolicy
+kind: TracingPolicyNamespaced
 metadata:
   name: "proc-exec-elf-begin-{{.PolicyID}}"
   namespace: {{.Namespace}}

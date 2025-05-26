@@ -1,6 +1,6 @@
 # Tracing policy to detect services listening on ports 1337 or 31337.
 apiVersion: cilium.io/v1alpha1
-kind: TracingPolicy
+kind: TracingPolicyNamespaced
 metadata:
   name: "tcp-listen-{{.PolicyName}}"
   namespace: {{.Namespace}}

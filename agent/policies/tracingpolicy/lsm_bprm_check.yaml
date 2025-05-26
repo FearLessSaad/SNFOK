@@ -1,6 +1,6 @@
 
 apiVersion: cilium.io/v1alpha1
-kind: TracingPolicy
+kind: TracingPolicyNamespaced
 metadata:
   name: "lsm-bprm-check-{{.PolicyID}}"
   namespace: {{.Namespace}}

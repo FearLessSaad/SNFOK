@@ -5,6 +5,7 @@ import (
 
 	"github.com/FearLessSaad/SNFOK/agent/controllers/health"
 	"github.com/FearLessSaad/SNFOK/agent/controllers/kubernetes"
+	"github.com/FearLessSaad/SNFOK/agent/controllers/policies"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/helmet"
@@ -32,6 +33,6 @@ func main() {
 	api := app.Group("/api")
 	health.HealthController(api.Group("/health"))
 	kubernetes.KubernetesController(api.Group("/kubernetes"))
-
+	policies.PoliciesController(api.Group("/policies"))
 	app.Listen("0.0.0.0:8990")
 }

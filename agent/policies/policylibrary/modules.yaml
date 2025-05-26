@@ -1,6 +1,6 @@
 # This tracing policy monitors kernel modules operations.
 apiVersion: cilium.io/v1alpha1
-kind: TracingPolicy
+kind: TracingPolicyNamespaced
 metadata:
   name: "monitor-kernal-modules-{{.PolicyID}}"
   namespace: {{.Namespace}}

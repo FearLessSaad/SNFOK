@@ -13,7 +13,7 @@
 # killed.
 
 apiVersion: cilium.io/v1alpha1
-kind: TracingPolicy
+kind: TracingPolicyNamespaced
 metadata:
   name: "connect-only-local-addrs-{{.PolicyID}}"
   namespace: {{.Namespace}}

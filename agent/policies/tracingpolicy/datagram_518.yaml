@@ -12,7 +12,7 @@
 # This example only matches on datagrams on loopback, but these selectors can
 # be removed or replaced to change the scope. They are just examples.
 apiVersion: cilium.io/v1alpha1
-kind: TracingPolicy
+kind: TracingPolicyNamespaced
 metadata:
   name: "datagram-518-{{.PolicyID}}"
   namespace: {{.Namespace}}

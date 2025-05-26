@@ -4,7 +4,7 @@
 #  This tracing policy reports loading of signed and unsigned modules
 #
 apiVersion: cilium.io/v1alpha1
-kind: TracingPolicy
+kind: TracingPolicyNamespaced
 metadata:
   name: "monitor-signed-kernal0modules-{{.PolicyID}}"
   namespace: {{.Namespace}}

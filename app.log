@@ -1544,3 +1544,26 @@
 {"level":"info","status":200,"method":"GET","path":"/api/v1/kubernetes/resources/all","request_id":"3b25b5bb-da9d-4afe-89c4-36d17f07528b","time":1748272740,"message":"REQUEST"}
 {"level":"info","time":1748272825,"message":"Application is shutting down gracefully: Received signal interrupt"}
 {"level":"info","time":1748272825,"message":"Closing default database connection"}
+{"level":"info","time":1748272842,"message":"Application is starting."}
+{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1748272842,"message":"Database connection established successfully"}
+{"level":"info","time":1748272842,"message":"Initializing 'auth' schema!"}
+{"level":"info","time":1748272842,"message":"Schema 'auth' initialized"}
+{"level":"info","time":1748272842,"message":"Table 'auth.users' already exists."}
+{"level":"info","time":1748272842,"message":"The 'auth' schema initialized successfully!"}
+{"level":"info","time":1748272842,"message":"Initializing 'k8s' schema!"}
+{"level":"info","time":1748272842,"message":"Schema 'k8s' initialized"}
+{"level":"info","time":1748272842,"message":"Table 'k8s.clusters' already exists."}
+{"level":"info","time":1748272842,"message":"Table 'k8s.alerts' already exists."}
+{"level":"info","time":1748272842,"message":"Table 'k8s.implimented_policies' already exists."}
+{"level":"info","time":1748272842,"message":"The 'k8s' schema initialized successfully!"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/kubernetes/resources/all","request_id":"fe671401-c927-4187-bd88-f3e6283db01d","time":1748272849,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/kubernetes/resources/all","request_id":"65763a36-583b-4c25-8a89-923f06e3ad75","time":1748272857,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/kubernetes/resources/all","request_id":"f214e545-5976-45eb-a823-5780f3f7dcd2","time":1748273023,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/kubernetes/resources/all","request_id":"20d894d9-f2cc-4f09-86f2-e76a21b5787e","time":1748273027,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/kubernetes/resources/all","request_id":"64822a5f-1ccb-4e4b-b278-18446a5d09b9","time":1748273031,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/kubernetes/namespaces/all","request_id":"b88dc7c9-f889-4039-a269-d6f8d1b4e962","time":1748274723,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"2e7b63a6-b2f6-44fb-ad0f-2edcf7393b26","time":1748274723,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"49a65486-abf9-43c5-9daf-7e4d63c4e0c1","time":1748274779,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/kubernetes/namespaces/all","request_id":"2fa53f5e-4dda-43aa-98fc-981f4a67de44","time":1748274783,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"08a0790f-ab9c-4d40-94fe-e5d5b9f6e63a","time":1748274783,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/auth/validate","request_id":"5ba80069-bb0b-4a9a-997e-ff4a23b8fa8e","time":1748274791,"message":"REQUEST"}

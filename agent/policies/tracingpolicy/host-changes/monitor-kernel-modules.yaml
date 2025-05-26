@@ -14,7 +14,7 @@
 #    state without unloading it. To detect those the load module hooks are the way.
 #
 apiVersion: cilium.io/v1alpha1
-kind: TracingPolicy
+kind: TracingPolicyNamespaced
 metadata:
   name: "monitor-kernal-modules-{{.PolicyID}}"
   namespace: {{.Namespace}}

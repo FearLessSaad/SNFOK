@@ -29,7 +29,7 @@
 #
 
 apiVersion: cilium.io/v1alpha1
-kind: TracingPolicy
+kind: TracingPolicyNamespaced
 metadata:
   name: "proc-cred-changed-{{.PolicyID}}"
   namespace: {{.Namespace}}

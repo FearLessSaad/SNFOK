@@ -2,7 +2,7 @@
 # in the host pid namespace. The intention here is to allow loading modules from host, but not from
 # pods in a k8s environment.
 apiVersion: cilium.io/v1alpha1
-kind: TracingPolicy
+kind: TracingPolicyNamespaced
 metadata:
   name: "monitor-kernal-modules-{{.PolicyID}}"
   namespace: {{.Namespace}}

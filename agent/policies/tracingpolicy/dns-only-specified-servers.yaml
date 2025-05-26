@@ -22,7 +22,7 @@
 # specific (eg tcp_connect) hook is required in addition.
 
 apiVersion: cilium.io/v1alpha1
-kind: TracingPolicy
+kind: TracingPolicyNamespaced
 metadata:
   name: "dns-only-specified-servers-{{.PolicyID}}"
   namespace: {{.Namespace}}

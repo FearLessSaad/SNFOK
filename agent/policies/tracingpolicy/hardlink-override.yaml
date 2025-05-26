@@ -4,7 +4,7 @@
 # tracing suffers from Time-of-Check-to-Time-of-Use (TOCTOU) issues that may limit the utility of
 # this policy.
 apiVersion: cilium.io/v1alpha1
-kind: TracingPolicy
+kind: TracingPolicyNamespaced
 metadata:
   name: "sys-linkat-passwd-override-{{.PolicyID}}"
   namespace: {{.Namespace}}

@@ -28,7 +28,7 @@
 #
 
 apiVersion: cilium.io/v1alpha1
-kind: TracingPolicy
+kind: TracingPolicyNamespaced
 metadata:
   name: "kill-unprivileged-user-namespace-in-pid-namespace-{{.PolicyID}}"
   namespace: {{.Namespace}}
