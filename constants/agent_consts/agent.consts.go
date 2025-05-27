@@ -7,6 +7,7 @@ const (
 	HEALTH_GET_INTO_PATH              = "/api/health/get"
 	KUBERNETES_GET_ALL_NAMESPACES     = "/api/kubernetes/namespaces/all"
 	KUBERNETES_COUNT_ALL_RUNNING_PODS = "/api/kubernetes/count/pods"
+	GET_ALL_APP_LABELS                = "/api/kubernetes/get/all/labels"
 )
 
 func GET_ALL_NAMESPACE_RESOURCES(namespace string) string {

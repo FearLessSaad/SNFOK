@@ -12,6 +12,23 @@ import (
 
 func GetAllWorkerNodes(router fiber.Router) {
 
+	router.Get("/get/all/labels", func(c *fiber.Ctx) error {
+
+		// Get the singleton Kubernetes clientset
+		clientset, err := k8sclient.GetClientset()
+		if err != nil {
+			log.Fatalf("Failed to get Kubernetes clientset: %v", err)
+		}
+
+		nodes, err := features.GetAllAppLabels(clientset)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "Error getting worker nodes: %v\n", err)
+			os.Exit(1)
+		}
+
+		return c.Status(fiber.StatusOK).JSON(nodes)
+	})
+
 	router.Get("/workers/nodes/all", func(c *fiber.Ctx) error {
 
 		// Get the singleton Kubernetes clientset

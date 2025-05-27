@@ -313,3 +313,46 @@ func DescribePod(clientset *kubernetes.Clientset, namespace, podName string) (*a
 
 	return description, nil
 }
+
+// GetAllAppLabels retrieves all unique app labels for pods in each namespace
+func GetAllAppLabels(clientset *kubernetes.Clientset) ([]agent_dto.NamespaceLabels, error) {
+	// Get all namespaces
+	namespaces, err := clientset.CoreV1().Namespaces().List(context.TODO(), metav1.ListOptions{})
+	if err != nil {
+		return nil, fmt.Errorf("failed to list namespaces: %v", err)
+	}
+
+	var namespaceLabels []agent_dto.NamespaceLabels
+
+	// Iterate through each namespace
+	for _, ns := range namespaces.Items {
+		// List all pods in the namespace
+		pods, err := clientset.CoreV1().Pods(ns.Name).List(context.TODO(), metav1.ListOptions{})
+		if err != nil {
+			return nil, fmt.Errorf("failed to list pods in namespace %s: %v", ns.Name, err)
+		}
+
+		// Collect unique app labels
+		labelSet := make(map[string]struct{})
+		for _, pod := range pods.Items {
+			if appLabel, exists := pod.Labels["app"]; exists && appLabel != "" {
+				labelSet[appLabel] = struct{}{}
+			}
+		}
+
+		// Convert label set to slice
+		var labels []string
+		for label := range labelSet {
+			labels = append(labels, label)
+			fmt.Println(">> ", label)
+		}
+
+		// Append namespace with its labels (even if empty)
+		namespaceLabels = append(namespaceLabels, agent_dto.NamespaceLabels{
+			Namespace: ns.Name,
+			Labels:    labels,
+		})
+	}
+
+	return namespaceLabels, nil
+}

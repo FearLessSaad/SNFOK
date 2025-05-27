@@ -147,3 +147,48 @@ func GetAllNamespaces() (global_dto.Response[[]string], int) {
 	}, fiber.StatusOK
 
 }
+
+func GetAllLabels() (global_dto.Response[[]agent_dto.NamespaceLabels], int) {
+
+	clusters, _ := persistance.GetAllClusters()
+	ip := clusters[0].MasterIP
+	port := clusters[0].AgentPort
+
+	client := httpclient.NewClient(0)
+
+	res, err := client.Get("http://"+ip+":"+fmt.Sprintf("%d", port)+agent_consts.GET_ALL_APP_LABELS, map[string]string{})
+	if err != nil {
+		logger.Log(logger.DEBUG, "HTTP Request Error", logger.Field{Key: "error", Value: err.Error()})
+		return global_dto.Response[[]agent_dto.NamespaceLabels]{
+			Status:  "error",
+			Message: message.SNFOK_AGENT_IS_NOT_ACCESSABLE,
+			Data:    nil,
+			Meta: &global_dto.Meta{
+				Code: response.SNFOK_AGENT_IS_NOT_ACCESSABLE,
+			},
+		}, fiber.StatusOK
+	}
+
+	var res_data []agent_dto.NamespaceLabels
+	if err := json.Unmarshal(res.Body, &res_data); err != nil {
+		logger.Log(logger.DEBUG, "Unmarshal Response", logger.Field{Key: "error", Value: err.Error()})
+		return global_dto.Response[[]agent_dto.NamespaceLabels]{
+			Status:  "error",
+			Message: message.SOMETING_WRONG,
+			Data:    nil,
+			Meta: &global_dto.Meta{
+				Code: response.EXECUTION_ERROR,
+			},
+		}, fiber.StatusInternalServerError
+	}
+
+	return global_dto.Response[[]agent_dto.NamespaceLabels]{
+		Status:  "success",
+		Message: "",
+		Data:    &res_data,
+		Meta: &global_dto.Meta{
+			Code: response.NAMESPACES_RESPONSE,
+		},
+	}, fiber.StatusOK
+
+}
