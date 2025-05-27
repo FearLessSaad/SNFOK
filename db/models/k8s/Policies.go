@@ -10,7 +10,7 @@ type ImplimentedPolicies struct {
 	ID             string `bun:",pk,type:uuid,default:gen_random_uuid()"`
 	PolicyTitle    string
 	Description    string
-	Pod            string
+	AppLabel       string
 	Namespace      string
 	PolicyFilePath string
 

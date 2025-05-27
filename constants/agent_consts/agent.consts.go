@@ -10,6 +10,10 @@ const (
 	GET_ALL_APP_LABELS                = "/api/kubernetes/get/all/labels"
 )
 
+func DELETE_TETRAGON_POLICY(path string) string {
+	return fmt.Sprintf("api/policies//delete/%s", path)
+}
+
 func GET_ALL_NAMESPACE_RESOURCES(namespace string) string {
 	return fmt.Sprintf("/api/kubernetes/namespaces/%s/resources", namespace)
 }

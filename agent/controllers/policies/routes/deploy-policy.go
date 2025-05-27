@@ -24,4 +24,13 @@ func DeployPolicy(router fiber.Router) {
 			"policy_path": path,
 		})
 	})
+
+	router.Get("/delete/:path", func(c *fiber.Ctx) error {
+		_, err := features.DeletePolicy(c.AllParams()["path"])
+
+		if err != nil {
+			return c.Status(fiber.StatusBadRequest).JSON(err.Error())
+		}
+		return c.Status(fiber.StatusOK).JSON("")
+	})
 }

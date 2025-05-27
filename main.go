@@ -17,6 +17,7 @@ import (
 	"github.com/FearLessSaad/SNFOK/controllers/auth"
 	"github.com/FearLessSaad/SNFOK/controllers/clusters"
 	"github.com/FearLessSaad/SNFOK/controllers/kubernetes"
+	"github.com/FearLessSaad/SNFOK/controllers/policies"
 	"github.com/FearLessSaad/SNFOK/db/initializer"
 	"github.com/FearLessSaad/SNFOK/middlewares"
 	"github.com/FearLessSaad/SNFOK/tooling"
@@ -44,16 +45,6 @@ func main() {
 
 	// Use Helmet Middleare
 	app.Use(helmet.New())
-	// Add Request ID  Middleware
-	app.Use(requestid.New(requestid.Config{
-		Header: "X-Request-ID",
-		Generator: func() string {
-			return uuid.New().String()
-		},
-	}))
-
-	// Custom logger middleware
-	app.Use(middlewares.LoggingMiddleware)
 
 	// CORS Middleware
 	app.Use(cors.New(cors.Config{
@@ -65,12 +56,24 @@ func main() {
 		MaxAge:           86400,
 	}))
 
+	// Add Request ID  Middleware
+	app.Use(requestid.New(requestid.Config{
+		Header: "X-Request-ID",
+		Generator: func() string {
+			return uuid.New().String()
+		},
+	}))
+
+	// Custom logger middleware
+	app.Use(middlewares.LoggingMiddleware)
+
 	api := "/api/v1"
 	auth.AuthController(app.Group(api + "/auth"))
 
 	app.Use(middlewares.AuthMiddleware)
 	clusters.ClusterController(app.Group(api + "/clusters"))
 	kubernetes.KubernetesController(app.Group(api + "/kubernetes"))
+	policies.PoliciesController(app.Group(api + "/policies"))
 	// -----------------------------------------------
 
 	// Channel to receive OS signals
