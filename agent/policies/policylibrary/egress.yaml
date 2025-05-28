@@ -19,5 +19,4 @@ spec:
         operator: "NotDAddr"
         values:
         - 127.0.0.1
-        - ${PODCIDR}
-        - ${SERVICECIDR}
+        - "10.10.0.0/16" 
