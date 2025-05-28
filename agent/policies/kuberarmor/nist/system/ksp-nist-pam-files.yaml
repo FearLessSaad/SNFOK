@@ -1,0 +1,45 @@
+# KubeArmor is an open source software that enables you to protect your cloud workload at run-time.
+# To learn more about KubeArmor visit: 
+# https://www.accuknox.com/kubearmor/ 
+
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy
+metadata:
+  name: ksp-nist-pam-files
+  namespace: default # Change your namespace
+spec:
+  tags: ["NIST","PAM"]
+  message: "Alert! Access denied to PAM files"
+  selector:
+    matchLabels:
+      pad: testpad # Change your match labels
+  process:
+    severity: 5
+    matchPaths:
+    - path: /usr/bin/pamfile
+    action: Block
+  file:
+    severity: 5
+    matchPaths:
+    - path: /etc/pam.conf
+      readOnly: false
+    matchDirectories:
+    - dir: /etc/pam.d/
+      recursive: false
+      readOnly: false
+    - dir: /var/lib/pam/
+      recursive: false
+      readOnly: false
+    - dir: /usr/lib/pam.d/
+      recursive: false
+      readOnly: false
+    - dir: /usr/lib/x86_64-linux-gnu/security/
+      recursive: false
+      readOnly: false
+    - dir: /usr/share/pam/
+      recursive: false
+      readOnly: false
+    - dir: /usr/share/pam-configs/
+      recursive: false
+      readOnly: false
+    action: Block

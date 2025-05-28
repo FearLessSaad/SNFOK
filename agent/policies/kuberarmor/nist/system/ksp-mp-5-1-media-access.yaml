@@ -1,0 +1,34 @@
+# KubeArmor is an open source software that enables you to protect your cloud workload at run-time.
+# To learn more about KubeArmor visit: 
+# https://www.accuknox.com/kubearmor/ 
+
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy
+metadata:
+  name: ksp-nist-mp-5-1-media-access
+  namespace: default   #change with your namespace
+spec:
+  tags: ["NIST", "MP5"] 
+  message: "Alert! Unauthorized user tried to access media devices "
+  selector:
+    matchLabels:
+      pod: testpod    #change with your match label
+  file:
+    severity: 5
+    matchPaths:
+    - path: /dev/bus/usb 
+    - path: /dev/fd0     
+    - path: /dev/fd1     
+    - path: /dev/scd0    
+    - path: /dev/scd0     
+    - path: /dev/sr0    
+    - path: /dev/sr1
+    action: Block
+  process:
+    severity: 5
+    matchPaths: 
+    - path: /dev/ttyUSB0  
+    - path: /dev/ttyUSB1
+    - path: /dev/ttyACM0  
+    - path: /dev/ttyS0    
+    action: Block

@@ -1,0 +1,20 @@
+# KubeArmor is an open source software that enables you to protect your cloud workload at run-time.
+# To learn more about KubeArmor visit: 
+# https://www.accuknox.com/kubearmor/ 
+
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorHostPolicy
+metadata:
+  name: hsp-mitre-ptrace-syscall
+spec:
+  tags : ["MITRE", "T1055.008", "Privilege Escalation", "P-trace"]
+  message: "Alert! ptrace access denied"
+  nodeSelector:
+    matchLabels:
+      kubernetes.io/hostname: gke-ubuntu # Change your match labels
+  file:
+    severity: 6
+    matchPaths:
+    - path: /proc/sys/kernel/yama/ptrace_scope 
+    - path: /etc/sysctl.d/10-ptrace.conf
+    action: Block

@@ -1,0 +1,21 @@
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+metadata:
+  name: "cnp-mitre-ingress-ftp-rule"
+  namespace: default        #change default namespace to match your namespace
+spec:
+  description: "This policy will block the inbound FTP connection"
+  endpointSelector:
+    matchLabels:
+      app: ftp-pod # Change your matchLabels
+  ingress:
+    - toPorts:
+        - ports:
+            - port: "20"
+              protocol: TCP
+            - port: "21"
+              protocol: TCP
+            - port: "990"
+              protocol: TCP
+            - port: "69"
+              protocol: UDP

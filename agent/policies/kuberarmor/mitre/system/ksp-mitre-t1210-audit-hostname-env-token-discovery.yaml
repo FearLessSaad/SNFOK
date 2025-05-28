@@ -1,0 +1,32 @@
+# KubeArmor is an open source software that enables you to protect your cloud workload at run-time.
+# To learn more about KubeArmor visit: 
+# https://www.accuknox.com/kubearmor/ 
+
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy
+metadata:
+  name: ksp-mitre-t1210-audit-hostname-env-token-discovery
+  namespace: default # Change your namespace
+spec:
+  tags: ["MITRE", "T1210","NIST","NIST-800-53-r5", "SC-11", "Trusted Path"]
+  message: "Hostname, env or k8s token accessed by unknown -- possible lateral movement "
+  selector:
+    matchLabels:
+      app: test #change app: test to match your label
+  process:
+    severity: 5
+    matchPaths:
+    - path: /bin/hostname
+      ownerOnly: true
+    - path: /usr/bin/env
+      ownerOnly: true
+    action: Audit
+  file:
+    severity: 5
+    matchPaths:
+    - path: /etc/hostname
+      ownerOnly: true
+    matchDirectories:
+    - dir: /var/run/secrets/kubernetes.io/serviceaccount/
+      ownerOnly: true
+    action: Audit

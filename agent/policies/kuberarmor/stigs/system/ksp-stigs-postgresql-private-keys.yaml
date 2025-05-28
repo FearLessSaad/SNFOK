@@ -1,0 +1,27 @@
+# KubeArmor is an open source software that enables you to protect your cloud workload at run-time.
+# To learn more about KubeArmor visit: 
+# https://www.accuknox.com/kubearmor/ 
+
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorPolicy
+metadata:
+  name: ksp-stig-postgresql-private-keys
+  namespace: default # Change your namespace
+spec:
+  tags: ["STIG", "PSQL"]
+  message: "Alert! Access to psql private keys has been denied"
+  selector:
+    matchLabels:
+      pod: postgresql-1 # Change your match labels
+  process:
+    severity: 5
+    matchPaths:
+    - path: /etc/ssl/private/ssl-cert-snakeoil.key
+      ownerOnly: true
+    - path: /etc/ssl/certs/ssl-cert-snakeoil.pem
+      ownerOnly: true
+    - path: /var/run/postgresql/13-main.pg_stat_tmp
+      ownerOnly: true
+    - path: /var/run/postgresql/13-main.pid
+      ownerOnly: true
+    action: Block
