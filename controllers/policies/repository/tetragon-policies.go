@@ -97,7 +97,7 @@ func DeletePolicy(id string) (global_dto.Response[[]string], int) {
 	port := cluster[0].AgentPort
 	client := httpclient.NewClient(0)
 
-	_, err := client.Get("http://"+ip+":"+fmt.Sprintf("%d", port)+agent_consts.DELETE_TETRAGON_POLICY(policy.PolicyFilePath), map[string]string{})
+	_, err := client.Get("http://"+ip+":"+fmt.Sprintf("%d", port)+"/"+agent_consts.DELETE_TETRAGON_POLICY(policy.PolicyFilePath), map[string]string{})
 	if err != nil {
 		logger.Log(logger.DEBUG, "HTTP Request Error", logger.Field{Key: "error", Value: err.Error()})
 		return global_dto.Response[[]string]{

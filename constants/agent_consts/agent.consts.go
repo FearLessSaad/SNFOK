@@ -11,7 +11,7 @@ const (
 )
 
 func DELETE_TETRAGON_POLICY(path string) string {
-	return fmt.Sprintf("api/policies//delete/%s", path)
+	return fmt.Sprintf("api/policies/delete/%s", path)
 }
 
 func GET_ALL_NAMESPACE_RESOURCES(namespace string) string {
