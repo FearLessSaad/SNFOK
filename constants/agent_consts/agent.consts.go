@@ -8,11 +8,8 @@ const (
 	KUBERNETES_GET_ALL_NAMESPACES     = "/api/kubernetes/namespaces/all"
 	KUBERNETES_COUNT_ALL_RUNNING_PODS = "/api/kubernetes/count/pods"
 	GET_ALL_APP_LABELS                = "/api/kubernetes/get/all/labels"
+	DELETE_TETRAGON_POLICY            = "/api/policies/delete"
 )
-
-func DELETE_TETRAGON_POLICY(path string) string {
-	return fmt.Sprintf("api/policies/delete/%s", path)
-}
 
 func GET_ALL_NAMESPACE_RESOURCES(namespace string) string {
 	return fmt.Sprintf("/api/kubernetes/namespaces/%s/resources", namespace)

@@ -11,7 +11,7 @@ clean:
 	rm -f agent/agent cli/snfokctl server
 
 copy-agent:
-	scp agent/agent ubuntu@10.251.137.206:~/
+	scp agent/agent ubuntu@10.251.137.173:~/
 
 copy-k8s:
 	scp k8s ubuntu@$(IP):~/

@@ -7,4 +7,5 @@ import (
 
 func PoliciesController(router fiber.Router) {
 	routes.DeployPolicy(router)
+	routes.PodIsolation(router)
 }

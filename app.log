@@ -481,3 +481,90 @@
 {"level":"info","status":200,"method":"GET","path":"/api/v1/policies/delete/a64082c9-4081-4e72-a537-0b30359aa106","request_id":"eee5ab38-3b7f-4547-91dd-ead4e502b304","time":1748390351,"message":"REQUEST"}
 {"level":"info","time":1748390443,"message":"Application is shutting down gracefully: Received signal interrupt"}
 {"level":"info","time":1748390443,"message":"Closing default database connection"}
+{"level":"info","time":1748446963,"message":"Application is starting."}
+{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1748446963,"message":"Database connection established successfully"}
+{"level":"info","time":1748446963,"message":"Initializing 'auth' schema!"}
+{"level":"info","time":1748446963,"message":"Schema 'auth' initialized"}
+{"level":"info","time":1748446963,"message":"Table 'auth.users' already exists."}
+{"level":"info","time":1748446963,"message":"The 'auth' schema initialized successfully!"}
+{"level":"info","time":1748446963,"message":"Initializing 'k8s' schema!"}
+{"level":"info","time":1748446963,"message":"Schema 'k8s' initialized"}
+{"level":"info","time":1748446963,"message":"Table 'k8s.clusters' already exists."}
+{"level":"info","time":1748446963,"message":"Table 'k8s.alerts' already exists."}
+{"level":"info","time":1748446963,"message":"Table 'k8s.implimented_policies' already exists."}
+{"level":"info","time":1748446963,"message":"Table 'k8s.all_policies' already exists."}
+{"level":"info","time":1748446963,"message":"The 'k8s' schema initialized successfully!"}
+{"level":"info","status":200,"method":"POST","path":"/api/v1/auth/login","request_id":"cee54d52-e858-4f82-b9d4-09f6bb2a8a5d","time":1748446969,"message":"REQUEST"}
+{"level":"debug","error":"failed to send POST request: Post \"http://10.251.137.206:8990/api/policies/deplye/policy\": dial tcp 10.251.137.206:8990: connect: no route to host","time":1748446993,"message":"HTTP Request Error"}
+{"level":"info","status":400,"method":"GET","path":"/api/v1/policies/deploy/5d7bd27b-c08d-4c71-aa2d-a2837c87b9ee/default/my-app/","request_id":"dbf1ba4f-2129-423f-8b5c-3f0dc00296ef","time":1748446993,"message":"REQUEST"}
+{"level":"debug","error":"failed to send POST request: Post \"http://10.251.137.206:8990/api/policies/deplye/policy\": dial tcp 10.251.137.206:8990: connect: no route to host","time":1748447111,"message":"HTTP Request Error"}
+{"level":"info","status":400,"method":"GET","path":"/api/v1/policies/deploy/5d7bd27b-c08d-4c71-aa2d-a2837c87b9ee/default/my-app/","request_id":"3492ac39-3514-43dd-99bf-13bb154bb78a","time":1748447111,"message":"REQUEST"}
+{"level":"debug","error":"failed to send POST request: Post \"http://10.251.137.206:8990/api/policies/deplye/policy\": dial tcp 10.251.137.206:8990: connect: no route to host","time":1748447118,"message":"HTTP Request Error"}
+{"level":"info","status":400,"method":"GET","path":"/api/v1/policies/deploy/5d7bd27b-c08d-4c71-aa2d-a2837c87b9ee/default/my-app/","request_id":"69cd5f06-61b1-48a2-ba15-c74256f9656a","time":1748447118,"message":"REQUEST"}
+{"level":"info","time":1748447192,"message":"Application is shutting down gracefully: Received signal interrupt"}
+{"level":"info","time":1748447192,"message":"Closing default database connection"}
+{"level":"info","time":1748447195,"message":"Application is starting."}
+{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1748447195,"message":"Database connection established successfully"}
+{"level":"info","time":1748447195,"message":"Initializing 'auth' schema!"}
+{"level":"info","time":1748447195,"message":"Schema 'auth' initialized"}
+{"level":"info","time":1748447195,"message":"Table 'auth.users' already exists."}
+{"level":"info","time":1748447195,"message":"The 'auth' schema initialized successfully!"}
+{"level":"info","time":1748447195,"message":"Initializing 'k8s' schema!"}
+{"level":"info","time":1748447195,"message":"Schema 'k8s' initialized"}
+{"level":"info","time":1748447195,"message":"Table 'k8s.clusters' already exists."}
+{"level":"info","time":1748447195,"message":"Table 'k8s.alerts' already exists."}
+{"level":"info","time":1748447195,"message":"Table 'k8s.implimented_policies' already exists."}
+{"level":"info","time":1748447195,"message":"Table 'k8s.all_policies' already exists."}
+{"level":"info","time":1748447195,"message":"The 'k8s' schema initialized successfully!"}
+{"level":"debug","error":"failed to send POST request: Post \"http://10.251.137.206:8990/api/policies/deplye/policy\": dial tcp 10.251.137.206:8990: connect: no route to host","time":1748447205,"message":"HTTP Request Error"}
+{"level":"info","status":400,"method":"GET","path":"/api/v1/policies/deploy/5d7bd27b-c08d-4c71-aa2d-a2837c87b9ee/default/my-app/","request_id":"329910d2-0a76-4031-a424-b1ca0832ba21","time":1748447205,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/policies/deploy/5d7bd27b-c08d-4c71-aa2d-a2837c87b9ee/default/my-app/","request_id":"f154106f-8229-4f4c-b9bd-48000486d25e","time":1748447232,"message":"REQUEST"}
+{"level":"debug","error":"failed to send GET request: Get \"http://10.251.137.173:8990/api/policies/delete//home/ubuntu/applied/c225c9a9-f50a-4854-a895-86ab70c64b2b.yaml\": dial tcp 10.251.137.173:8990: connect: connection refused","time":1748447351,"message":"HTTP Request Error"}
+{"level":"info","status":500,"method":"GET","path":"/api/v1/policies/delete/ed4cc7fc-4686-480a-9389-bb627456edce","request_id":"1df7f09e-3dd4-46de-b441-9d79a0ecc7f6","time":1748447351,"message":"REQUEST"}
+{"level":"debug","error":"GET request failed with status 404: Cannot GET /api/policies/delete//home/ubuntu/applied/c225c9a9-f50a-4854-a895-86ab70c64b2b.yaml","time":1748447368,"message":"HTTP Request Error"}
+{"level":"info","status":500,"method":"GET","path":"/api/v1/policies/delete/ed4cc7fc-4686-480a-9389-bb627456edce","request_id":"3df4aa6d-6773-492d-b923-51ea976184a2","time":1748447368,"message":"REQUEST"}
+{"level":"debug","error":"GET request failed with status 404: Cannot GET /api/policies/delete//home/ubuntu/applied/c225c9a9-f50a-4854-a895-86ab70c64b2b.yaml","time":1748447371,"message":"HTTP Request Error"}
+{"level":"info","status":500,"method":"GET","path":"/api/v1/policies/delete/ed4cc7fc-4686-480a-9389-bb627456edce","request_id":"877bf02a-1d1c-4438-934a-4be02131113e","time":1748447371,"message":"REQUEST"}
+{"level":"info","time":1748447773,"message":"Application is shutting down gracefully: Received signal interrupt"}
+{"level":"info","time":1748447773,"message":"Closing default database connection"}
+{"level":"info","time":1748447809,"message":"Application is starting."}
+{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1748447809,"message":"Database connection established successfully"}
+{"level":"info","time":1748447809,"message":"Initializing 'auth' schema!"}
+{"level":"info","time":1748447809,"message":"Schema 'auth' initialized"}
+{"level":"info","time":1748447809,"message":"Table 'auth.users' already exists."}
+{"level":"info","time":1748447809,"message":"The 'auth' schema initialized successfully!"}
+{"level":"info","time":1748447809,"message":"Initializing 'k8s' schema!"}
+{"level":"info","time":1748447809,"message":"Schema 'k8s' initialized"}
+{"level":"info","time":1748447809,"message":"Table 'k8s.clusters' already exists."}
+{"level":"info","time":1748447809,"message":"Table 'k8s.alerts' already exists."}
+{"level":"info","time":1748447809,"message":"Table 'k8s.implimented_policies' already exists."}
+{"level":"info","time":1748447809,"message":"Table 'k8s.all_policies' already exists."}
+{"level":"info","time":1748447809,"message":"The 'k8s' schema initialized successfully!"}
+{"level":"debug","error":"POST request failed with status 404: Cannot POST //api/policies/delete","time":1748447814,"message":"HTTP Request Error"}
+{"level":"info","status":500,"method":"GET","path":"/api/v1/policies/delete/ed4cc7fc-4686-480a-9389-bb627456edce","request_id":"3f731219-5f72-4b42-a713-70cd5b6a7e98","time":1748447814,"message":"REQUEST"}
+{"level":"info","time":1748447831,"message":"Application is shutting down gracefully: Received signal interrupt"}
+{"level":"info","time":1748447831,"message":"Closing default database connection"}
+{"level":"info","time":1748447833,"message":"Application is starting."}
+{"level":"info","host":"localhost","port":"5432","db_name":"snfok","time":1748447833,"message":"Database connection established successfully"}
+{"level":"info","time":1748447833,"message":"Initializing 'auth' schema!"}
+{"level":"info","time":1748447833,"message":"Schema 'auth' initialized"}
+{"level":"info","time":1748447833,"message":"Table 'auth.users' already exists."}
+{"level":"info","time":1748447833,"message":"The 'auth' schema initialized successfully!"}
+{"level":"info","time":1748447833,"message":"Initializing 'k8s' schema!"}
+{"level":"info","time":1748447833,"message":"Schema 'k8s' initialized"}
+{"level":"info","time":1748447833,"message":"Table 'k8s.clusters' already exists."}
+{"level":"info","time":1748447833,"message":"Table 'k8s.alerts' already exists."}
+{"level":"info","time":1748447833,"message":"Table 'k8s.implimented_policies' already exists."}
+{"level":"info","time":1748447833,"message":"Table 'k8s.all_policies' already exists."}
+{"level":"info","time":1748447833,"message":"The 'k8s' schema initialized successfully!"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/policies/delete/ed4cc7fc-4686-480a-9389-bb627456edce","request_id":"ab7ec1aa-4ac0-4a0c-9946-8cb411ffe2ba","time":1748447837,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/policies/deploy/5d7bd27b-c08d-4c71-aa2d-a2837c87b9ee/default/my-app/","request_id":"6e9b50a3-d308-4ecb-89aa-76843db098a3","time":1748447920,"message":"REQUEST"}
+{"level":"error","error":"sql: no rows in result set","time":1748448057,"message":"Failed to execute select query on 'k8s.clusters'."}
+{"level":"debug","error":"failed to send POST request: Post \"http://10.251.137.173:8990/api/policies/delete\": dial tcp 10.251.137.173:8990: connect: connection refused","time":1748448057,"message":"HTTP Request Error"}
+{"level":"info","status":500,"method":"GET","path":"/api/v1/policies/delete/ed4cc7fc-4686-480a-9389-bb627456edce","request_id":"75a700a9-48fe-458c-888f-ebb44fb59deb","time":1748448057,"message":"REQUEST"}
+{"level":"error","error":"sql: no rows in result set","time":1748448132,"message":"Failed to execute select query on 'k8s.clusters'."}
+{"level":"debug","error":"POST request failed with status 400: \"exit status 1\"","time":1748448132,"message":"HTTP Request Error"}
+{"level":"info","status":500,"method":"GET","path":"/api/v1/policies/delete/ed4cc7fc-4686-480a-9389-bb627456edce","request_id":"badb9057-e9d6-48c0-b627-bf557e7d8f21","time":1748448132,"message":"REQUEST"}
+{"level":"info","status":200,"method":"GET","path":"/api/v1/policies/delete/b365699c-2f28-4c35-8635-1742d38caf99","request_id":"a60ce5a0-0bdd-4207-90e8-ef2ec5e859d1","time":1748448169,"message":"REQUEST"}
+{"level":"info","time":1748448193,"message":"Application is shutting down gracefully: Received signal interrupt"}
+{"level":"info","time":1748448193,"message":"Closing default database connection"}
